@@ -1,0 +1,3924 @@
+
+//1300 创建联盟
+message CreateAllianceReq{
+	required string allianceName=1;//联盟名字
+}
+
+//1300 创建联盟的响应
+message CreateAllianceResp{
+	required int64 allianceId = 1;//联盟ID
+}
+
+//1301 创建联盟-snet
+message CreateAllianceSNetReq {
+	required int64 playerId=1;//玩家ID
+	required string playerName=2;//创建者名字
+	required string allianceName = 3;//联盟名字
+}
+
+//1301 创建联盟的响应-snet
+message CreateAllianceSNetResp {
+	required int64 playerId = 1;//玩家ID
+	optional int64 result = 2;//错误码
+	required int64 allianceId = 3;//联盟ID，创建成功时返回
+}
+
+//1302 申请加入联盟
+message JoinAllianceReq {
+	required int64 allianceId = 1;//联盟ID
+	required int32 type = 2;//0取消申请，1申请
+}
+
+//1302 申请加入联盟的响应
+message JoinAllianceResp {
+	required int64 allianceId = 1;//联盟ID
+}
+
+//1303 申请加入联盟-snet
+message JoinAllianceSNetReq {
+	required int64 playerId = 1;//玩家ID
+	required string playerName = 2;//玩家名字
+	required int32 playerLevel = 3;//玩家等级
+	required int64 allianceId = 4;//联盟ID
+}
+
+//1303 申请加入联盟的响应-snet
+message JoinAllianceSNetResp {
+	required int64 playerId = 1;//玩家ID
+	optional int64 result = 2;//错误码
+	required int64 allianceId = 3;//联盟ID
+}
+
+//1304 同意加入联盟的申请
+message AgreeApplyAlliacneReq {
+	required int64 allianceId = 1;//联盟ID		
+	required int64 applicantId = 2;//申请者ID
+}
+
+//1304 同意加入联盟的申请的响应
+message AgreeApplyAllianceResp {
+}
+
+//1305 同意加入联盟的申请-snet
+message AgreeApplyAllianceSNetReq {
+	required int64 allianceId = 1;//联盟ID
+	required int64 applicantId = 2;//申请者ID
+	required int64 approverId = 3;//批准人ID
+}
+
+//1305 同意加入联盟的申请的响应-snet
+message AgreeApplyAllianceSNetResp {
+	required int64 approverId = 1;//批准人ID
+	optional int64 result = 2;//错误码
+}
+
+//1306 拒绝加入联盟的申请
+message RejectApplyAllianceReq {
+	required int64 allianceId = 1;//联盟ID	
+	required int64 applicantId = 2;//申请者ID
+}
+
+//1306 拒绝加入联盟的申请的响应
+message RejectApplyAllianceResp {
+}
+
+//1307 拒绝加入联盟的申请-snet
+message RejectApplyAllianceReqSNet {
+	required int64 allianceId = 1;//联盟ID
+	required int64 applicantId = 2;//申请者ID
+	required int64 approverId = 3;//批准人ID
+}
+
+//1307 拒绝加入联盟的申请的响应-snet
+message RejectApplyAllianceRespSNet {
+	required int64 approverId = 1;//批准人ID	
+	optional int64 result = 2;//错误码
+}
+
+//1308 通知玩家加入了联盟
+message JoinAllianceNotification {
+	required int64 playerId = 1;//玩家ID
+	required int64 allianceId = 2;//联盟ID
+	required string allianceName = 3;//联盟名字
+}
+
+//1309 退出联盟的请求
+message LeaveAllianceReq {
+}
+
+//1309 退出联盟的响应
+message LeaveAllianceResp {
+}
+
+//1310 退出联盟的请求-snet
+message LeaveAllianceSNetReq {
+	required int64 playerId = 1;//玩家ID
+}
+
+//1310 退出联盟的响应-snet
+message LeaveAllianceSNetResp {
+	required int64 playerId = 1;//玩家ID
+	optional int64 result = 2;// 错误码
+}
+
+//1311 踢出联盟的请求
+message KickAllianceMemeberReq {
+	required int64 memberId = 1;// 成员id
+}
+
+//1311 踢出联盟的响应
+message KickAllianceMemeberResp {
+	required int64 memberId = 1;// 成员id
+}
+
+//1312 踢出联盟的请求-snet
+message KickAllianceMemeberSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int64 memberId = 2;// 成员id
+}
+
+//1312 踢出联盟的响应-snet
+message KickAllianceMemeberSNetResp {
+	required int64 operatorId=1;//操作者ID
+	required int64 memberId = 2;// 成员id
+	optional int64 result = 3;// 错误码
+}
+
+//1313 升级联盟
+message LevelUpAllianceReq{
+	required int64 allianceId=1;
+}
+
+// 1313 升级联盟结果
+message LevelUpAllianceResp {
+	required int64 allianceId = 1;// 联盟id
+	required int32 nowLevel = 2;// 联盟最新等级
+}
+
+// 1314 升级联盟-snet
+message LevelUpAllianceSNetReq {
+	required int64 playerId=1;//玩家ID
+	required int64 allianceId=2;// 联盟id
+}
+
+// 1314 升级联盟结果-snet
+message LevelUpAllianceSNetResp {
+	optional int64 result = 1;// 错误码
+	optional int64 allianceId = 2;// 联盟id
+	optional int32 nowLevel = 3;// 联盟最新等级
+	required int64 playerId=4;//玩家ID
+}
+
+// 1315 获取联盟申请列表
+message GetAllianceApplyListReq {
+}
+
+// 1315 获取联盟申请列表结果
+message GetAllianceApplyListResp {
+	repeated AllianceApplyInfo allianceApplyList = 1;
+}
+
+// 1316 获取联盟申请列表-snet
+message GetAllianceApplyListSNetReq {
+	required int64 operatorId=1;//操作者ID
+}
+
+// 申请信息
+message AllianceApplyInfo {
+	required int64 applyId = 1;
+	required int64 playerId = 2;
+	required string playerName = 3;
+	required int32 playerLevel = 4;
+	required int32 x = 5;
+	required int32 y = 6;
+}
+
+// 1316 获取联盟申请列表结果-snet
+message GetAllianceApplyListSNetResp {
+	required int64 operatorId=1;//操作者ID
+	repeated AllianceApplyInfo allianceApplyList = 2;
+	optional int64 result = 3;//错误码	
+}
+
+// 1317 清空申请列表
+message ClearAllianceApplyListReq {
+}
+
+// 1317 清空联盟列表结果
+message ClearAllianceApplyListResp {
+}
+
+
+// 1318 清空申请列表-snet
+message ClearAllianceApplyListSNetReq {
+	required int64 operatorId=1;//操作者ID
+}
+
+// 1318 清空申请列表处理结果-snet
+message ClearAllianceApplyListSNetResp {
+	required int64 operatorId=1;//操作者ID
+	optional int64 result = 2;// 错误码
+}
+
+// 1319 设置联盟的申请方式
+message SetAllianceApplyTypeReq {
+	required int32 type = 1;// 申请类型，0：审核加入、1：自动加入
+}
+
+// 1319 设置联盟的申请方式结果
+message SetAllianceApplyTypeResp {
+	required int32 type = 2;// 申请类型，0：审核加入、1：自动加入
+}
+
+// 1320 设置联盟的申请方式-snet
+message SetAllianceApplyTypeSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int32 type = 2;// 申请类型，0：审核加入、1：自动加入
+
+}
+
+// 1320 设置联盟的申请方式结果-snet
+message SetAllianceApplyTypeSNetResp {
+	required int64 operatorId=1;//操作者ID
+	required int32 type = 2;// 申请类型，0：审核加入、1：自动加入
+	optional int64 result = 3;// 错误码
+}
+
+// 1321 搜索联盟并加入
+message SearchAllianceAndApplyReq {
+	required string allianceName = 1;
+}
+
+// 1321 搜索联盟并加入结果
+message SearchAllianceAndApplyResp {
+	optional string allianceName = 1;//联盟
+}
+
+// 1322 搜索联盟并加入-snet
+message SearchAllianceAndApplySNetReq {
+	required int64 playerId = 1;//玩家ID
+	required string playerName = 2;//玩家名字
+	required int32 playerLevel = 3;//玩家等级
+	required string allianceName = 4;// 联盟名字
+}
+
+// 1322 搜索联盟并加入结果-snet
+message SearchAllianceAndApplySNetResp {
+	required int64 operatorId=1;//操作者ID
+	optional int64 result = 2;// 错误码
+	optional string allianceName = 3;//联盟
+}
+
+// 1323 获取联盟信息列表
+message GetAllianceListReq {
+	required int32 index=1;//第几页
+	required int32 pageNum=2;//一页显示多少条
+}
+
+//联盟信息
+message AllianceInfo {
+	required int64 allianceId=1;
+	required string name = 2;
+	required int32 level=3;//联盟等级
+	optional int32 distance = 4;// 距离
+	optional int32 memberNum = 5;// 成员数量
+	required int32 banner = 6;// 旗帜
+	required int32 applyType = 7;// 申请类型，0：审核加入、1：自动加入
+	optional string announcement = 8;//公告 
+	optional int64 exp = 9;// 经验
+	optional string chiefName = 10;// 盟主名字
+	optional int64 chiefId = 11;// 盟主id
+	optional int32 momey = 12;// 联盟资金
+}
+
+// 1323 获取联盟信息列表结果
+message GetAllianceListResp {
+	repeated AllianceInfo allianceInfoList = 1;// 联盟信息列表
+}
+
+// 1324 获取联盟信息列表-snet
+message GetAllianceListSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int32 index=2;//第几页
+	required int32 pageNum=3;//一页显示多少条
+}
+
+// 1324 获取联盟信息列表结果-snet
+message GetAllianceListSNetResp {
+	required int64 operatorId=1;//操作者ID
+	repeated AllianceInfo allianceInfoList = 2;// 联盟信息列表
+}
+
+// 1325 修改联盟公告
+message ChangeAllianceAnnouncementReq {
+	required string announcement = 1;// 公告
+}
+
+// 1325 修改联盟公告结果
+message ChangeAllianceAnnouncementResp {
+}
+
+// 1326 修改联盟公告-snet
+message ChangeAllianceAnnouncementSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required string announcement = 2;// 公告
+}
+
+// 1326 修改联盟公告结果-snet
+message ChangeAllianceAnnouncementSNetResp {
+	required int64 operatorId=1;//操作者ID
+	optional int64 result = 2;// 错误码
+}
+
+// 1327 修改联盟旗帜
+message ChangeAllianceBannerReq {
+	required int32 bannerId = 1;// 联盟旗帜id
+}
+
+// 1327 修改联盟旗帜结果
+message ChangeAllianceBannerResp {
+	required int32 bannerId = 1;// 联盟旗帜id
+}
+
+// 1328 修改联盟旗帜-snet
+message ChangeAllianceBannerSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int32 bannerId = 2;// 联盟旗帜id
+	optional int32 caseDiamond = 3;// 消耗钻石个数
+}
+
+// 1328 修改联盟旗帜结果-snet
+message ChangeAllianceBannerSNetResp {
+	required int64 operatorId=1;//操作者ID
+	required int32 bannerId = 2;// 联盟旗帜id
+	optional int64 result = 3;// 错误码
+	optional int32 caseDiamond = 4;// 消耗钻石个数
+}
+
+// 1329 任命职务
+message AppointAllianceTitleReq {
+	required int64 memberId = 1;// 成员id
+	required int32 title = 2;// 职务
+}
+
+// 1329 任命职务结果
+message AppointAllianceTitleResp {
+	required int64 memberId = 1;// 成员id
+	required int32 title = 2;// 职务
+}
+
+// 1330 任命职务-snet
+message AppointAllianceTitleSNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int64 memberId = 2;// 成员id
+	required int32 title = 3;// 职务
+}
+
+// 1330 任命职务结果-snet
+message AppointAllianceTitleSNetResp {
+	required int64 operatorId=1;//操作者ID
+	required int64 memberId = 2;// 成员id
+	required int32 title = 3;// 职务
+	optional int64 result = 4;// 错误码
+}
+
+// 1331 放弃职务
+message GiveUpAllianceTitleReq {
+}
+
+// 1331 放弃职务结果
+message GiveUpAllianceTitleResp {
+}
+
+// 1332 放弃职务-snet
+message GiveUpAllianceTitleSNetReq {
+	required int64 operatorId=1;//操作者ID
+}
+
+// 1332 放弃职务结果-snet
+message GiveUpAllianceTitleSNetResp {
+	required int64 operatorId=1;//操作者ID
+	optional int64 result = 2;// 错误码
+}
+
+// 1333 捐献联盟银币
+message DonateAllianceMoneyReq {
+	required int32 money = 1;
+}
+
+// 1333 捐献联盟银币结果
+message DonateAllianceMoneyResp {
+	optional int32 officePost = 1;// 最新的爵位
+}
+
+// 1334 捐献联盟银币-snet
+message DonateAllianceMoneySNetReq {
+	required int64 operatorId=1;//操作者ID
+	required int32 money = 2;
+}
+
+// 1334 捐献联盟银币结果-snet
+message DonateAllianceMoneySNetResp {
+	required int64 operatorId=1;//操作者ID
+	required int32 money = 2;
+	optional int32 officePost = 3;// 最新的爵位
+	optional int64 result = 4;// 错误码
+}
+
+// 1335 更新玩家的活跃时间-snet
+message UpdateAllianceMemberActiveTimeSNetReq {
+	required int64 playerId = 1;// 玩家id
+}
+
+// 1335 更新玩家的活跃时间-snet
+message UpdateAllianceMemberActiveTimeSNetResp {
+}
+
+// 1336 获取联盟成员列表
+message GetAllianceMemberListInfoReq {
+}
+
+// 1336 获取联盟成员列表结果
+message GetAllianceMemberListInfoResp {
+	repeated AllianceMemberBriefInfo memberBriefInfoList = 1;//联盟成员简要信息
+	optional bool isEndPacket = 2;// 是否是最后一页
+}
+
+// 1337 获取联盟成员列表-snet
+message GetAllianceMemberListInfoSNetReq {
+	required int64 operatorId=1;//操作者ID
+}
+
+// 联盟成员的简要信息
+message AllianceMemberBriefInfo {
+	required int64 memberId = 1;// 联盟成员的id
+	required int32 weekMedal = 2;// 本周武勋
+	required int32 contribution = 3;// 贡献
+	required int32 x = 4;// x坐标
+	required int32 y = 5;// y坐标
+	required int32 officePost = 6;// 爵位
+	required int32 title = 7;// 职务
+}
+
+// 1337 获取联盟成员列表结果-snet
+message GetAllianceMemberListInfoSNetResp {
+	required int64 operatorId=1;//操作者ID
+	optional int64 result = 2;// 错误码
+	repeated AllianceMemberBriefInfo memberBriefInfoList = 3;//联盟成员简要信息
+	optional bool isEndPacket = 4;// 是否是最后一页
+}
+
+// 1338 获取联盟玩家的详细信息-snet
+message GetAllianceMemberDetailInfoSNetReq {
+	required int64 playerId = 1;// 玩家id
+	required int64 operatorId = 2;// 请求者的id
+}
+
+// 1338 获取联盟玩家的详细信息返回-snet
+message GetAllianceMemberDetailInfoSNetResp {
+	required int64 playerId = 1;// 玩家id
+	required int64 operatorId = 2;// 请求者的id
+	required string playerName = 3;// 玩家名字
+	required int64 playerPrestige = 4;// 玩家威望
+}
+
+// 1340 获取联盟玩家的详细信息返回
+message GetAllianceMemberDetailInfoResp {
+	required int64 playerId = 1;// 玩家id
+	required string playerName = 2;// 玩家名字
+	required int64 playerPrestige = 3;// 玩家威望
+}
+
+// 1341 获取联盟的外交信息
+message GetAllianceDiplomacyInfoListReq {
+}
+
+message AllianceDiplomacyInfo {
+	required int64 otherAllianceId=1;
+	required string name = 2;
+	required int32 level=3;//联盟等级	
+	required int32 banner = 4;// 旗帜
+	required int32 diplomacyType = 5;// 关系类型[1:普通，2:紧张，3:敌对]
+}
+
+// 1341 获取联盟的外交信息结果
+message GetAllianceDiplomacyInfoListResp {
+	repeated AllianceDiplomacyInfo diplomacyInfoList = 1;// 联盟外交列表
+	optional bool isEndPacket = 2;// 是否是最后一页
+}
+
+// 1342 获取联盟的外交信息-snet
+message GetAllianceDiplomacyInfoListSNetReq {
+	required int64 playerId = 1;
+}
+
+// 1342 获取联盟的外交信息结果-snet
+message GetAllianceDiplomacyInfoListSNetResp {
+	required int64 playerId = 1;
+	repeated AllianceDiplomacyInfo diplomacyInfoList = 2;// 联盟外交列表
+	optional bool isEndPacket = 3;// 是否是最后一页
+	optional int64 result = 4;// 错误码
+}
+
+// 1350 获取联盟天赋列表
+message GetAllianceTalentListReq {
+}
+
+// 1350 获取联盟天赋列表响应
+message GetAllianceTalentListResp {
+	repeated AllianceTalentInfo info = 1;// 天赋列表
+}
+
+//单个天赋的基本信息
+message AllianceTalentInfo {
+	required int32 type = 1;//天赋类型
+	required int32 level = 2;//天赋登录
+	optional int32 levelUpEndTime = 3 [default = 0];//天赋剩余升级时间
+}
+
+// 1351 升级联盟天赋
+message LevelUpAllianceTalentReq {
+	required int32 type = 1;//天赋类型
+	required bool finish = 2;//是否立即完成
+}
+
+// 1351 升级联盟天赋结果
+message LevelUpAllianceTalentResp {
+	required bool rs = 1;//天赋升级操作结果，true为成功，false为失败
+	required AllianceTalentInfo info = 2;// 联盟天赋基本信息
+}
+
+// 1352 升级联盟天赋-snet
+message LevelUpAllianceTalentSNetReq {
+	required int64 operatorId = 1;// 请求者的id
+	required int32 type = 2;//天赋类型
+	required bool finish = 3;//是否立即完成
+}
+
+// 1352 升级联盟天赋结果-snet
+message LevelUpAllianceTalentSNetResp {
+	required int64 operatorId = 1;// 请求者的id
+	required int32 type = 2;//天赋类型
+	required bool finish = 3;//是否立即完成
+	optional int32 allianceLevel = 4;// 联盟等级
+	optional int64 result = 5;// 错误码
+}
+
+// 1353 加速升级联盟天赋
+message SpeedLevelUpAllianceTalentReq {
+}
+
+// 1353 加速升级联盟天赋结果
+message SpeedLevelUpAllianceTalentResp {
+	required bool rs = 1;//天赋id
+	required AllianceTalentInfo info = 2;// 天赋基本信息
+}
+
+
+
+//11900请求竞技场信息
+message ArenaInfoReq{
+	
+	required int32 hardType=1;//难度,1容易，2普通，3困难
+
+}
+
+//11900返回竞技场信息
+message ArenaInfoResp{
+
+	required int64 playerId=1;
+	required int32 attackCount=2;//当前已经挑战的次数
+	required int32 hardType=3;//难度,1容易，2普通，3困难
+	repeated ArenaNpcData list=4;
+	required bool isAttackNext=5;//是否可以挑战下一轮
+	required int32 allFc=6;//战斗力
+	required int32 attack=7;//攻城
+}
+
+//11901请求挑战
+message ArenaAttackReq{
+
+	required int64 arenaId=1;//竞技场ID
+	required int64 armyId=2;//挑战军团ID
+	required int32 hardType=3;//难度,1容易，2普通，3困难
+}
+
+//11901挑战结果
+message ArenaAttackResp{
+	
+	required bool rs=1;
+	
+	optional int32 attackCount=2;//攻打次数
+	
+	optional ArenaNpcData data=3;//当3次失败后才返回此值
+	
+	optional int32 attackType=4;//0战败，1战胜
+}
+
+//11902请求刷新下一轮,返回还是使用11900协议
+message ArenaRefreshReq{
+	required int32 hardType=1;//难度,1容易，2普通，3困难
+}
+
+//11903请求获取士兵布阵信息
+message ArenaBarracksInfoReq{
+
+	required int64 arenaId=1;//竞技场ID
+	
+}
+
+//11903返回士兵布阵信息
+message ArenaBarracksInfoResp{
+
+	repeated ArenaBarracksData list=1;
+	
+	required int32 allFc=2;//总战斗力
+	
+	required int32 allHp=3;//总血量
+	
+	required int32 allInCorpsLimit=4;//布阵上限
+	
+	required int32 alreadyInCorpsCount=5;//已经布阵的数量
+}
+
+//11904请求布阵
+message ArenaEditFormationReq{
+
+	required int64 arenaId=1;//竞技场ID
+	required int64 barracksId=2;//兵营ID
+	optional int32 index=3;//位置
+	optional int32 positionX=4;//x位置
+	optional int32 positionY=5;//y位置
+	
+}
+
+//11904返回布阵结果
+message ArenaEditFormationResp{
+
+	required ArenaBarracksData data=1;
+	
+	required int32 editType=2;//0下阵，1上阵
+
+}
+
+message ArenaBarracksData{
+
+	required int64 id=1;
+	required int64 playerId=2;
+	required int64 arenaId=3;//竞技场ID
+	required int32 positionX=4;//x位置
+	required int32 positionY=5;//y位置
+	required int64 npcId=6;//
+	required int32 index=7;//位置
+	required int32 fc=8;//战斗力
+	required int32 hp=9;//血量
+	
+}
+
+
+//竞技场NPC数据
+message ArenaNpcData{
+
+	required int64 id=1;
+	required int64 playerId=2;
+	required int64 arenaId=3;//竞技场ID
+	required int32 positionX=4;//x位置
+	required int32 positionY=5;//y位置
+	required int64 npcId=6;//
+	required int32 attackType=7;//0未击败，1已击败
+	required int32 attackCount=8;//此NPC的挑战次数
+	required int32 terrain=9;//地皮类型
+	required int32 index=10;//位置
+	required int32 fc=11;//战斗力
+	
+}
+
+
+
+
+
+
+
+
+
+// 请求增加物品
+message BackpackAddReq {
+	optional int32 itemConfigId=1;
+	optional int32 count = 2;
+}
+
+// 返回增加物品
+message BackpackAddResp {
+	optional int32 itemId=1;
+	
+	optional int32 itemConfigId=2;
+}
+
+//请求删除物品
+message BackpackDeleteReq {
+	
+	optional int32 itemConfigId=1;
+	optional int32 count = 2;
+}
+
+
+// 单种士兵信息
+message SoldierInfo {
+	required int32 soldierType = 1; // 士兵类型
+	required int32 amount = 2; // 数量
+}
+
+// 10200 请求兵营信息
+message BarracksInfoReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2; // 兵营建筑id
+}
+
+// 10200 返回兵营信息
+message BarracksInfoResp {
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2; // 兵营建筑id
+	required int32 endAddSoldierTime = 3; // 结束补兵时间戳
+	required int32 prepareSoldierLimit = 4; // 预备兵上限
+	required int32 totalSoldierAmount = 5; // 总的士兵数量
+	repeated SoldierInfo info = 6; // 列表士兵信息
+	required int32 addSoldierType = 7; // 正在补兵的士兵类型
+	required int32 addSoldierAmount = 8; // 正在补兵的数量
+}
+
+// 10201 请求补兵
+message BarracksAddSoldierReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2; // 兵营id
+	required int32 soldierType = 3; // 士兵类型
+	required int32 amount = 4; // 补兵的数量
+}
+
+// 10201 补兵结果
+message BarracksAddSoldierResp {
+	required int64 buildingId = 1; // 兵营id
+	required int32 endAddSoldierTime = 2; // 结束补兵时间戳
+}
+
+// 10202 加速补兵
+message BarracksSpeedUpAddSoldierReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2; // 兵营id
+}
+
+// 10202 加速补兵
+message BarracksSpeedUpAddSoldierResp {
+	required int64 buildingId = 1; // 兵营建筑id
+	required int32 endAddSoldierTime = 2; // 结束补兵时间戳
+}
+
+// 501:跨服拿军团数据请求
+message BattleLegionListInfoReq {
+	required int32 terrainType = 1;						// 地形id	
+	required int32 relationFaction = 2;					// 阵营id
+	required int64 playerId = 3;						// 防守方
+	repeated int64 corpsIds = 4;						// 军团id列表
+	required int64 tileId = 5;							// 地块id
+}
+
+// 502:战斗军团数据返回
+message BattleLegionListInfoResp {
+	required int64 tileId = 1;							// 地块id
+	required int32 relationFaction = 2;					// 阵营id
+	required PlayerInfo playerInfo = 3;					// 防守者信息
+	repeated LegionDetailInfo legionList = 4;			// 防守军团详细信息
+}
+
+// 军团详细信息
+message LegionDetailInfo {
+	required int64 corpsId = 1;							// 军团id
+	required string corpsName = 2;						// 军团名字
+	required int32 trainingValue = 3;					// 训练值
+	required int32 confidence = 4;						// 信心值
+	required int32 supplyValue = 5;						// 给养值
+	repeated ArmyDetailInfo armyList = 6;				// 军队列表
+}
+
+// 军团属性的加成(兵器加成+百夫长等级加成+百夫长技能等级加成+联盟科技加成)
+message BattleAdditionInfo {
+	required int32 attrType = 1;
+	required double add = 2;							// 常数加成
+	required double percentage = 3;						// 百分比加成
+}
+
+// 军队详细信息
+message ArmyDetailInfo {
+	required int64 armyId = 1;						
+	required int32 x = 2;	
+	required int32 y = 3;
+	required int32 soldierType = 4;						// 士兵类型
+	required int32 soldierCount = 5;					// 士兵数量
+	repeated BattleAdditionInfo additionList = 6;				// (官员/武器/科技)加成信息
+	required HeroDetailInfo heroDetailInfo = 7;
+}
+
+// 英雄觉醒技能信息
+message AwakenSkill {
+	required int32 typeId = 1;
+	required int32 level = 2;
+	required int32 rank = 3;
+	
+	optional int64 skillMergerId = 4;
+}
+
+// 英雄详细信息
+message HeroDetailInfo {
+	required int64 heroId = 1;
+	required int64 typeId = 2;
+	optional AwakenSkill awakenSkill = 3;
+	//TODO ...
+}
+
+// 504竞技场战斗
+message ArenaAttackBattleReq {
+	required PlayerInfo playerInfo=1;//攻击方
+	required int32 attackPlayerSourceId=2;//攻击方来源
+	required LegionDetailInfo attackLegion=3;//攻击方军团
+	required int32 defenseNpcId=4;// npcId
+	required int32 terrain=5;//地形
+	required int64 arenaId=6;//竞技场ID
+	required int32 hardType=7;//竞技场难度
+	required int64 armyId=8;//防守方数据库生成唯一的ID
+	
+}
+
+//504竞技场战斗返回
+message ArenaAttackBattleResp{
+	
+	required int64 playerId=1;
+	required int64 arenaId=2;//竞技场ID
+	required int64 armyId=3;//防守方数据库生成唯一的ID
+	required int32 hardType=4;//难度,1容易，2普通，3困难
+	required bool isWin=5;
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+// 战报协议
+///////////////////////////////////////////////////////////////////////////////////
+// 战报简要数据
+
+
+// 500:战报请求协议
+message BattleReportReq {
+	required int64 reportId = 1;						// 战报id
+	optional int64 playerId = 2;						// 玩家id
+}
+
+// 500:战报
+message BattleReport {
+	required int64 reportId = 1;
+	required int32 terrainType = 2;						// 地形id
+	required PlayerInfo attacker = 3;					// 攻击者信息
+	optional PlayerInfo defenser = 4;					// 防守者信息
+	optional int64 npcId = 5;							// npcId
+	repeated BattleReportItem battleReportList = 6;		// 多场战斗战报
+	optional int32 type = 7;							// [1:主动弹出界面、2:后端通知]
+}
+
+message BattleReportItem {
+	required BattleLegionInfo attackLegion = 1;		 	// 攻击军团列表
+	required BattleLegionInfo defenseLegion = 2;		// 防守军团列表
+	repeated BattleRound roundList = 3;					// 这场战斗的所有回合信息
+	optional BattleResult battleResult = 4;				// 战斗结算
+}
+
+// 攻击标志
+enum AttackFlagMask {
+	ATTACK_MASK_HIT = 0x01;							// 是否命中 1
+	ATTACK_MASK_CRITIC = 0x02;						// 是否暴击 2
+	ATTACK_MASK_BLOCK = 0x04;						// 是否被格挡 4
+	ATTACK_MASK_COUNTERATTACK = 0x20;				// 是否反击
+	ATTACK_MASK_DODGE = 0x40;						// 是否闪避
+	ATTACK_MASK_DAMAGE_REBOUND = 0x80;				// 伤害反弹
+}
+
+// buff id 集合
+enum BuffIDEnum {
+	ATTACK_ENHANCE = 1;								// 攻击增强
+	DAMAGE_REDUCE = 2;								// 伤害减免
+}
+
+message PlayerInfo {
+	required int64 playerId = 1;
+	required string playerName = 2;						// 玩家名称
+	optional string	allianceName = 3;					// 联盟名字
+}
+
+//军团，对应指挥所
+message BattleLegionInfo {						
+	required string corpsName = 1;						// 军团名字
+	repeated BarracksInfo barrackList = 2;				// 所属军队列表
+}
+
+//TODO 英雄
+message HeroInfo {
+	required int64 typeId = 1;
+	required int32 index = 2;	
+	required int32 belongSoldierIndex = 3;
+}
+
+//兵营
+message BarracksInfo {		
+	required int32 x = 1;	
+	required int32 y = 2;
+	required int32 soldierType = 3;						// 士兵类型
+	required int32 soldierCount = 4;					// 士兵数量
+	required int32 index = 5;							// 兵营索引
+	required int32 hp = 6;
+	required HeroInfo hero = 7;							// 所属英雄列表
+}
+
+// 回合
+message BattleRound {
+	required int32 round = 1;							// 第x回合
+	repeated Action actionList = 2;						// 这个回合发生的action
+}
+
+// 英雄行动
+message HeroAction {
+	required int32 actionIndex = 1;						// 行动英雄的索引
+	required int32 skill = 2;							// 所使用的技能
+	required int32 targetRelation = 3;					// 目标关系(0:友好, 1:敌对)
+	required int32 targetRef = 4;						// 技能范围(0:自身,1:前排, 2:后排, 3:第一列, 4:第二列, 5:第三列, 6：全体)
+	repeated BuffAdd buffAddList = 5; 					// 技能带来的效果
+	repeated HurtInfo hurtList = 6;
+}
+
+// buff 生效
+message BuffAdd {
+	required int32 buffId = 1;							// 技能
+	required int32 armyIndex = 2;						// 士兵索引
+}
+
+// 行动
+message Action {
+	repeated Attack attack = 1;							// 攻击
+	optional HeroAction heroAction = 2;					// 英雄行动
+	optional BuffLose buffLose = 3;						// 技能带来的效果失效
+}
+
+// buff 失效
+message BuffLose {
+	required int32 buffId = 1;							// 技能
+	required int32 armyIndex = 2;						// 士兵索引
+}
+
+// 攻击
+message Attack {
+	required int32 actionIndex = 1;						// 行动兵营的索引
+	repeated HurtInfo hurtList = 2;						// 伤害列表
+	repeated BuffLose buffLoseList = 3;					// 技能带来的效果失效
+}
+
+// 单个攻击目标结果
+message HurtInfo {
+	required int32 targetIndex = 1;								
+	required int32 flags = 2;							// 标志位，用以表明暴击、格挡...等等效果
+	required int32 hurt = 3;							// 伤害(加血的话是负数)
+}
+
+// 战斗结果简要信息
+message BattleSimpleResult {
+	required int32 isWin = 1;							// 是否胜利
+	required int32 killCount = 2;						// 消灭士兵数量
+	required int32 loseCount = 3;						// 损失士兵数量
+	required int32 faith = 4;							// 信心奖励
+}
+
+// 战斗结算
+message BattleResult {
+	required BattleSimpleResult simpleResult = 1;		// 战斗结果简要信息
+	required int32 gold = 2;							// 金币奖励
+	required int32 silver = 3;							// 银币奖励
+}
+enum BuildingDef {
+	BUILDING_LIST_MAX_COUNT = 60;
+}
+
+// 10100获取所有建筑列表
+message BuildingListReq {
+	required int64 cityId = 1; // 城市ID
+}
+
+// 10100建筑列表
+message BuildingListResp {
+	repeated BuildingInfo info = 1; // 建筑列表
+	required bool endPacket = 2; // 包结束标志
+}
+
+//单个建筑的基本信息
+message BuildingInfo {
+	required int64 id = 1; //建筑ID
+	required int64 cityId = 2; // 城市ID
+	required int64 typeId = 3;// 建筑等级ID
+	required int32 x = 4; //x坐标
+	required int32 y = 5; //y坐标
+	required int32 buildingType = 6; // 建筑类型
+	required int32 state = 7;// 建筑状态[0:正常,1:升级,2:建造,4:损坏状态]
+	optional int32 extraState = 8;// 附加状态[1 研究科技中,2研究兵器中,3生产中,4补兵中,5训练中,6运输中]
+	optional int32 extraEndTiem = 9;// 状态结束时间
+	optional string extraData = 10;// 附加数据
+	required int32 endCreateTime = 11; // cd时间
+	repeated SatisfactionInfo satisfactionInfo = 12;// 满意度列表
+}
+
+// 10101创建一个建筑
+message BuildingCreateReq {
+	required int64 cityId = 1; // 城市ID
+	required string clientId = 2; // 客户端临时ID
+	required int32 buildingType = 3; // 建筑类型
+	required int32 x = 4; //x坐标
+	required int32 y = 5; //y坐标
+}
+
+// 10101创建建筑的结果
+message BuildingCreateResp {
+	required bool rs = 1; //操作结果
+	optional BuildingInfo buildingInfo = 2;// 建筑信息
+}
+
+// 10102移动建筑
+message BuildingMoveReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //建筑id
+	required int32 x = 3; //新的x坐标
+	required int32 y = 4; //新的y坐标
+}
+
+// 10102移动建筑的结果
+message BuildingMoveResp {
+	required int64 id = 1; //移动建筑的id
+	required bool rs = 2; //移动结果
+	required int32 x = 3; //新的x坐标
+	required int32 y = 4; //新的y坐标
+}
+
+// 10103升级建筑
+message BuildingLevelUpReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //待升级的建筑id
+	required bool finish = 3;//是否立即完成
+}
+
+// 10103升级建筑的结果
+message BuildingLevelUpResp {
+	required int64 id = 1; //升级建筑id
+	required int32 endLevelUpTime = 2; // 升级结束时间戳
+	required bool rs = 3; //升级结果
+}
+
+// 10104移除建筑
+message BuildingRemoveReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //待移除的建筑id
+}
+
+// 10104移除建筑结果
+message BuildingRemoveResp{
+	required int64 id = 1; //移除建筑id
+	required bool rs = 2; //移除结果
+}
+
+// 10105建造升级加速
+message BuildingSpeedUpReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //待加速的建筑id
+}
+
+// 10105建造升级加速结果
+message BuildingSpeedUpResp{
+	required int64 id = 1; //加速建筑id
+	required bool rs = 2; //加速结果
+}
+
+// 10106 请求加成值
+message BuildingBonudsReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //建筑id
+}
+
+
+// 10106 返回加成值
+message BuildingBonudsResp{
+	required int64 id = 1; //建筑id
+	repeated BonusInfo bonusInfo = 2;// 加成信息
+}
+
+// 单个加成信息
+message BonusInfo {
+	required int32 attrType = 1;// 属性类型
+	optional double bonusPct = 2;// 百分比加成值
+	optional double bonusExtra = 3;// 附加加成值
+}
+
+// 10107 请求损坏修复
+message BuildingRepairReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //建筑id
+}
+
+
+// 10107 返回修复结果
+message BuildingRepairResp{
+	required int64 id = 1; //建筑id
+	required int32 state = 2; // 建筑状态[0:正常,1:升级,2:建造,4:损坏状态]
+	required bool rs = 3; // 结果
+}
+
+// 10108 请求建造面板信息
+message BuildingCreateInfoReq{
+	required int64 cityId = 1; // 城市ID
+}
+
+// 单个上限信息
+message OrnamentLimitInfo{
+	required int32 type = 1;// 装饰类建筑类型
+	required int32 limit = 2;// 装饰建筑上限
+	required int32 buyTime = 3;// 购买次数
+}
+
+// 10108 请求建造面板信息
+message BuildingCreateInfoResp{
+	required int32 buildingCount = 1;// 建筑数量
+	required int32 labor = 2;// 空闲劳工
+	required int32 citizen = 3;// 空闲公民
+	required int32 nobility = 4;// 空闲贵族
+	repeated OrnamentLimitInfo info = 5;// 建造上限
+	required int64 cityId = 6; // 城市ID
+}
+
+// 10109 请求建筑生效
+message BuildingClickValidityReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //建筑id
+} 
+
+// 10109 返回点击后的效果信息
+message BuildingClickValidityResp{
+	required int64 cityId = 1; // 城市ID
+	required BuildingInfo buildingInfo = 2;// 建筑信息
+} 
+
+// 10110 请求建造升级完成建筑信息
+message BuildingFinishInfoReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 id = 2; //建筑id
+} 
+
+// 10110 返回建造升级完成建筑信息
+message BuildingFinishInfoResp{
+	required int64 cityId = 1; // 城市ID
+	required BuildingInfo info = 2;// 建筑信息
+} 
+
+// 聊天类型
+enum ChatType {
+	PRIVATE_MSG = 1;// 私聊
+	ALLIANCE_MSG = 2;// 联盟
+	WORLD_MSG = 3;// 世界
+	MARQUEE_MSG = 4;// 跑马灯
+	SYSTEM_MSG = 5;// 系统
+}
+
+// 11600 聊天请求
+message ChatReq {
+	required ChatType chatType = 1;
+	required string content = 2;// 消息
+	optional int64 receiverId = 3;// 接收者id
+}
+
+// 11601 发送聊天信息-snet
+message SendChatMsgSNetReq {
+	required ChatType chatType = 1;
+	required string content = 2;// 消息
+	optional int64 receiverId = 3;// 接收者id
+	optional int64 senderId = 4;// 发送者id
+}
+
+// 11602 接收聊天信息
+message ReceiveChatMsg {
+	required ChatType chatType = 1;
+	required string content = 2;// 消息
+	optional int64 senderId = 3;// 发送者id
+}
+// 10000 请求城市列表信息
+message CityListReq {
+}
+
+// 10000 城市列表
+message CityListResp {
+	repeated CityInfo  cityInfo = 1; // 城市列表
+}
+
+//10001 城市资源信息的响应
+message CityResourceListResp {
+	required int64 cityId = 1;// 城市id
+	repeated ResourceInfo resource = 2;// 资源列表
+}
+
+//10001 请求获得城市资源信息
+message CityResourceListReq {
+	required int64 cityId = 1;// 城市id
+}
+
+//资源基本信息
+message ResourceInfo {
+	required int32 type = 1;// 资源类型
+	required int64 value = 2;// 资源数量
+	required int32 speed = 3;// 生产速度
+}
+
+// 10002单个城市信息
+message CityInfo {
+	required int64 id = 1; // 城市ID
+	required string name = 2; // 城市名称
+	required int32 cityType = 3; // 城市类型 1:主城, 2:分城, 3:要塞
+	required int32 worldX = 4; // 世界X坐标
+	required int32 worldY = 5; // 世界Y坐标
+}
+
+// 10003城市消耗列表
+message CityResourceConsumeListReq {
+	required int64 cityId = 1;// 城市id
+}
+
+message CityResourceConsumeListResp {
+	required int64 cityId = 1;// 城市id
+	repeated ResourceInfo resource = 2;// 资源列表
+	optional int64 calculatorSeconds = 3;// 消耗这些资源的用时
+}
+
+// 10004 资源结算
+message CityResourceResetReq {
+	required int64 cityId = 1;// 城市id
+}
+
+// 10005 请求加载城市数据
+message LoadCityInfoReq{
+	required int64 cityId = 1;// 城市id
+}
+
+// 单个资源供应信息
+message ResourceSupplyInfo{
+	required int32 resourceType = 1;// 资源类型
+	required double supplyValue = 2;// 供应值 0~1
+}
+
+// 单个建筑产出信息
+message BuildingProduceCoinInfo{
+	required int64 buildingId = 1;// 建筑Id
+	required int32 silver = 2;// 银币
+	required int32 gold = 3;//金币
+	required int32 diamond = 4;// 钻石
+}
+
+// 10007 请求城市的建筑产出信息
+message CityProduceCoinInfoReq{
+	required int64 cityId = 1;// 城市ID
+}
+
+// 10007 返回城市的建筑产出信息
+message CityProduceCoinInfoResp{
+	required int64 cityId = 1;// 城市ID
+	repeated BuildingProduceCoinInfo info = 2;// 建筑产出信息
+	required int32 nextTakeSilverTime = 3;// 下次收取银币时间
+	required int32 nextTakeGoldTime = 4;// 下次收取金币时间
+	required int32 nextTakeDiamondTime = 5;// 下次收取钻石时间
+}
+
+// 10008 请求收取建筑产出
+message CityTakeProduceCoinReq{
+	required int64 cityId = 1;// 城市ID
+	required int32 coinType = 2;// 收取的货币类型
+}
+
+// 单个建筑收取信息
+message BuildingTakeCoinInfo{
+	required int64 buildingId = 1;// 建筑Id
+	required int32 value = 2;// 货币
+}
+
+// 10008 返回收取结果
+message CityTakeProduceCoinResp{
+	required int64 cityId = 1;// 城市ID
+	required int32 coinType = 2;// 收取的货币类型
+	repeated BuildingTakeCoinInfo info = 3;// 收取建筑货币信息
+}
+
+// 99 心跳请求
+message HeartbeatReq {
+}
+
+// 99 心跳响应
+message HearbeatResp {
+	required int64 timestamp = 1;//服务器时间戳
+}
+
+
+// 民居信息
+message HouseInfo{
+	required int64 buildingId = 1;// 建筑ID
+	required int32 satisfactionType = 2;// 最缺的满意度类型
+}
+
+// 12000 请求顾问信息
+message CounselorInfoReq{
+	required int64 cityId = 1;// 城市ID
+}
+
+// 12000 返回顾问信息
+message CounselorInfoResp{
+	required int64 cityId = 1;// 城市ID
+	repeated HouseInfo houseInfo = 2;// 民居民意不足信息
+	repeated int32 resourceType = 3;// 不足资源类型
+}
+
+// 单个民居的满意信息
+message DwellingSatisfactionInfo{
+	required int64 buildingId = 1;// 民居id
+	repeated SatisfactionInfo satisfactionInfo = 2;// 满意度列表
+}
+	
+
+//10800 请求民居满意度信息
+message DwellingSatisfactionInfoReq {
+	required int64 cityId = 1; // 城市ID
+}
+
+//10800 民居满意度信息响应
+message DwellingSatisfactionInfoResp {
+	required int64 cityId = 1;// 城市ID
+	repeated DwellingSatisfactionInfo info = 2;// 民居列表
+}
+
+//满意度信息
+message SatisfactionInfo {
+	required int32 type = 1;//满意度类型
+	required int32 groupType = 2;// 满意度组类型
+	required int32 value = 3;//满意度值
+	required int32 max = 4;// 满意度上限值
+	required int64 buildingId = 5;// 建筑ID
+}
+
+//10801 请求民居满意度信息
+message DwellingInfoReq {
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 民居id
+}
+
+//10801 民居满意度信息响应
+message DwellingInfoResp {
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 民居id
+	repeated SatisfactionInfo info = 3;// 满意度列表
+	required int32  oneHourRevenue = 4;// 一小时的税收值
+}
+//11700  邮件界面打开
+message EmailOpenListReq {
+	required int32 page=1;//第几页
+	required int32 pageSize=2;//每页显示的邮件数目
+	required int32 emailType=3;//1系统邮件,2个人邮件,3联盟邮件
+}
+
+//11700 邮件界面返回
+message EmailOpenListResp {
+	required int32 page=1;//第几页
+	required int32 pageSize=2;//每页显示的邮件数目
+	required int32 emailType=3;//1系统邮件,2个人邮件,3联盟邮件
+	repeated EmailBasicData datas=4;//邮件列表
+}
+
+//11701查看单封邮件信息
+message EmailOpenReq {
+	required int64 mailId=1;//邮件ID
+}
+
+//11701查看单封邮件信息返回
+message EmailOpenResp{
+	optional EmailData data=1;//邮件信息
+}
+
+//11702删除邮件请求
+message EmailDeleteReq{
+	repeated int64 emailIds=1;//邮件ID
+}
+
+//11702删除邮件返回
+message EmailDeleteResp{
+	repeated int64 emailIds=1;//邮件ID
+	required bool result=2;//ture为成功，false为失败
+}
+
+//11703 提取附件请求
+message EmailTakeGoodsReq{
+	repeated int64 emailId=1;//邮件ID列表
+	required int32 takeType= 2;//提取方式,0为根据邮件ID提取一个邮件的附件;1为一键提取所有邮件的附件,邮件ID列表则不用传值
+}
+
+//11703 提取附件返回
+message EmailTakeGoodsResp{
+	required bool result = 1;//true提取成功，false失败
+	repeated EnclosureData enclosureDatas=2;//附件内容
+}
+
+message EnclosureData{
+	optional int64 mailId=1;
+	optional string enclosure=2;//附件内容
+}
+
+//11704 发送邮件请求
+message EmailSendReq{
+	optional int64 receivePlayerId=1;//接收玩家ID,当发给单个玩家时填值
+	optional int64 allianceId=2;//联盟ID,当发给联盟的人填值
+	required int32 sendType=3;//1 是发送给一个玩家；2是发送好友列表中的所有人；3联盟中的所有人
+	required string title=4;//邮件标题
+	required string content=5;//邮件内容
+}
+
+//11704发送邮件返回
+message EmailSendResp{
+
+	required bool result=1;//true成功，false失败
+
+}
+
+//11705发送邮件到不同服的玩家(后端使用，前端不用)
+message EmailSendToOtherServerPlayerReq{
+
+	required int64 sendPlayerId=1;//发送者ID
+	required int64 receivePlayerId=2;//接收者ID
+	required string sendNickName=3;//发送者昵称
+	required string title=4;//邮件标题
+	required string content=5;//邮件内容
+	
+}
+
+//11706发送邮件到不同服的玩家返回(后端使用，前端不用)
+message EmailSendToOtherServerPlayerResp{
+	required bool result=1;//true成功，false失败
+	required int64 sendPlayerId=2;//发送者ID
+}
+
+
+
+//11707系统发送邮件
+message EmailSystemSendReq{
+	required int32 sourceId=1;//发送的系统来源
+	required int64 taskId=2;//邮件任务ID
+	required int64 receivePlayerId=3;//邮件接收者
+	required string title=4;//邮件标题
+	required string content=5;//邮件正文内容
+	optional string data=6;//附件内容
+	
+}
+
+//11708系统发送邮件返回
+message EmailSystemSendResp{
+
+	required int64 taskId=1;//邮件任务ID
+	required int64 receivePlayerId=2;
+}
+
+//11709系统收到邮件通知gameserver删除存储的任务ID
+message EmailSystemSendResultResp{
+
+	required int64 taskId=1;//邮件任务ID
+	required int64 receivePlayerId=2;
+}
+
+
+//邮件基本内容
+message EmailBasicData{
+	optional int64 emailId=1;//邮件ID
+	optional int32 emailType =2;//1系统邮件,2个人邮件,3联盟邮件
+	optional int64 time=3;//发送时间
+	optional string title= 4;//邮件标题
+	optional string content= 5;//邮件内容
+}
+
+//邮件详细内容
+message EmailData{
+	optional int64 emailId=1;//邮件ID
+	optional int32 emailType =2;//1系统邮件,2个人邮件,3联盟邮件
+	optional int64 time=3;//发送时间
+	optional int32 readType=4;//0未读，1已读，2已领取
+	optional string nickName=5;//昵称
+	optional string title= 6;//邮件标题
+	optional string content=7;//邮件内容
+	optional string link=8;//超链接
+}
+
+
+
+//10502 工厂类建筑选择生产资源的类型
+message FactorySelectFormulaReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 工厂建筑id
+	required int64 selectFormulaId = 3;// 玩家选中要生产的配方
+}
+
+//10502 工厂类类建筑选择生产资源类型的结果
+message FactorySelectFormulaResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 工厂建筑id
+	required bool rs = 3;// true表示成功生产，false表示请求失败
+	required int32 lastSelectDate = 4;// 上一次选择资源的时间
+	required int64 formulaId = 5;// 玩家选中要生产的资源类型
+}
+
+//10503 请求工厂类建筑详细信息
+message FactoryBuildingInfoReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 工厂建筑id
+}
+
+//10503 工厂类建筑详细信息结果
+message FactoryBuildingInfoResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 工厂建筑id
+	required int64 formulaId = 3;// 正在生产的配方
+	required int32 lastSelectDate = 4;// 上一次选择资源的时间
+	required int32 consumeRate = 5;// 消耗速率 
+}
+// 单个雕像信息
+message FanceStatueInfo{
+	required int64 cityId = 1;// 所在城市ID
+	required int64 buildingId = 2;// 雕像建筑buildingId
+	required int64 fanceBuildingId = 3;// 所在神庙ID
+	required double foreverAddValue = 4;//永久产量加成
+	required double sacrificeAddValue = 5;//祭祀产量加成
+	required int64 exp = 6;//当前经验值
+	required int64 nextLevelExp = 7;//下一级所需要的经验值
+	required int64 endTime=8;//祭祀结束时间戳
+	required int64 buildingType=9;//建筑类型
+	required int64 red_crystal = 10;//所需红水晶数量
+	required int64 orange_crystal = 11;//橙水晶
+	required int64 yellow_crystal = 12;//黄水晶
+	required int64 green_crystal = 13;//绿水晶
+	required int64 cyan_crystal = 14;//青水晶
+	required int64 blue_crystal = 15;//蓝水晶
+	required int64 purple_crystal = 16;//紫水晶
+	required int64 ink_crystal = 17;//墨水晶
+	required int32 currentLevel=18;//当前等级
+}
+
+// 11500 请求获取单个神庙雕像信息
+message FanceStatueInfoReq{
+	required int64 cityId = 1;// 雕像所在城市ID
+	required int64 buildingId = 2;// 雕像建筑buildingId
+}
+
+//返回单个神庙雕像信息
+message FanceStatueInfoResp{
+
+	required FanceStatueInfo info = 1;
+
+}
+
+// 11501 请求神庙所有的雕像信息
+message FanceStatueListInfoReq {
+	required int64 cityId = 1;// 神庙所在城市ID
+	required int64 buildingId = 2;// 神庙建筑buildingId
+}
+
+//返回神庙所有的雕像信息
+message FanceStatueListInfoResp {
+
+	repeated FanceStatueInfo infoList = 1;
+}
+
+// 11502 神庙雕像祭祀
+message FanceStatueSacrificeReq{
+
+	required int64 cityId = 1;// 雕像所在城市ID
+	required int64 buildingId = 2;// 雕像建筑buildingId
+}
+
+
+//神庙雕像祭祀返回
+message FanceStatueSacrificeResp{
+
+	required FanceStatueInfo info = 1;
+	
+	required bool rs = 2;//ture成功，false失败
+}
+
+
+
+
+
+
+
+
+
+
+//10500 农业资源类建筑选择生产资源的类型
+message FarmingSelectProductionResourceReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 农业建筑id
+	required int32 resourceType = 3;// 玩家选中要生产的资源类型
+}
+
+//10500 农业资源类建筑选择生产资源类型的结果
+message FarmingSelectProductionResourceResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 农业建筑id
+	required bool rs = 3;// true表示成功生产，false表示请求生产失败
+	required int32 lastSelectDate = 4;// 上一次选择资源的时间
+	required int32 resourceType = 5;// 玩家选中要生产的资源类型
+}
+
+//10501 请求农场类建筑详细信息
+message FarmingBuildingInfoReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 农业建筑id
+}
+
+//10501 农场类建筑详细信息结果
+message FarmingBuildingInfoResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 农业建筑id
+	required int32 resourceType = 3;// 正在生产的资源类型
+	required int32 lastSelectDate = 4;// 上一次选择资源的时间
+	required int32 consumeRate = 5;// 消耗速率 
+}
+
+
+//11317 大使馆的界面；当前好友数量以及好友上限
+message EmbassyBuildingInfoReq{
+	required int32 type=1;
+}
+
+message EmbassyBuildingInfoResp{
+	required int32 currentNum=1;
+	required int32 limitNum=2;
+}
+
+//11327 查询当前好友的数量
+message EmbassyBuildFriendSize{
+	required int64 pid=1;
+	optional int32 num=2;
+}
+
+message EmbassyBuildFriendSizeFromOther{
+	required EmbassyBuildFriendSize ebfs=1;
+}
+
+
+
+//11318提示协议
+message TipsResp{
+
+//提示内容 1 成功发送申请; 2 成功添加对方为好友; 3  不存在这条申请数据;
+//4 好友数量已到达上限; 5在对方的黑名单中;  6 成功添加入黑名单;
+//7 成功地从好友列表中删除; 8 对方已在自己的好友列表中; 9 对方已在自己的动态申请列表;
+//10 对方在自己的黑名单中
+
+	optional int32 tipsId=1; 								
+}
+
+//11326 提示返回
+message TipsParams{
+	required TipsResp tips=1;
+	required int64 pid=2;
+}
+
+//基本信息数据
+message FriendBasicInfo{
+	optional int64 friendId=1;//玩家id
+	optional string nickName=2;//玩家昵称
+	optional int32 head=3;//头像数值
+}
+
+//黑名单信息
+message BlackInfo{
+	required int64 beOperateId=1;//玩家id
+	required int32 serverId=2;
+	required string nickName=3;
+	required int32 level=4;
+	required int32 head=5;
+	optional string allianName=6;
+}
+
+
+
+
+
+// 11300 请求申请成为好友
+message ApplyFriendReq {
+	required int64 receiveId = 1;//接收者ID
+}
+
+//11300申请成为好友返回
+message ApplyFriendResp{
+	required int32 result = 1;//1 成功
+}
+
+
+//11301同意
+message AgreeFriendReq{
+	required int64 friendId=1;//玩家id
+	required int32 type=2;//操作，1 同意，2不同意
+	
+}
+
+// 11301同意他人成为自己的好友
+message AgreeFriendResp {
+	required int32 result=1;//结果，1同意成功，2拒绝成功
+	optional int64 lastLoginTime=2;//上一次登录时间	
+}
+
+//11320 发送到 SocialService; 11325 发送到 其他 Gs（子服）
+message DynamicParam{
+	optional int64 ownerId=1;
+	optional int32 ownerSid=2;
+	optional int64 fid=3;
+	optional int32 fSid=4;
+	optional int32 level=5;
+	optional string nickName=6;
+	optional int32 state=7;
+	optional int32 head =8;
+	optional int32 result=9;//1存在，0 不在该服务器
+}
+
+
+//11302 将当前的玩家拉进黑名单
+message AddBlackListReq {
+	required int64 addBlackPlayerId=1;
+}
+
+//11302 将当前的玩家拉进黑名单返回
+message AddBlackListResp {
+	required int32 result =1;
+}
+
+//11303动态信息,发给前端
+message DynamicResp{
+	required int64 applyId=1;//玩家id
+	required int32 serverId=2;//服务器ID
+	required string nickName=3;//玩家昵称
+	required int32 level=4;//玩家等级
+	required int32 result= 5;//对应语言包表数据
+}
+
+
+//11321 从 Socialserver 接收到数据
+message AgreeRespOtherService{
+	required int64 pid=1;
+	required AgreeFriendResp resp=2;
+}
+
+
+
+//11322 加入黑名单
+message AddBlackListFromOhterService{
+	required int64 pid=1;
+	optional AddBlackListReq fablReq=2;
+	optional int32 result = 3;//成功返回
+}
+
+//11323删除好友，黑名单
+message DeleteFriendReq {
+	required int64 deleteId=1;//玩家id
+	required int32 type=2;//0 好友，1 黑名单
+}
+//11323返回删除结果
+message DeleteFriendResp{
+	required int32 result = 1;// 1 表示删除成功 ，2被删除,
+	required int64 deleteId=2;
+}
+
+
+//11305查看好友列表请求
+message ShowFriendListReq{
+	required int32 type=1;//1,表示申请列表,2,表示好友列表；3表示黑名单列表
+	required int32 num=2;//查看条数
+	required int32 index=3;//查看的页数，从1开始
+}
+
+//11305查看好友列表返回
+message ShowFriendListResp{
+	required int32 type=1;//1,表示申请列表,2,表示好友列表；3表示黑名单列表
+	optional int32 limitNum=2;//申请列表上限,好友上限，黑名单上限
+	repeated FriendBasicInfo infos=3;//好友信息
+	optional int64 playerId=4;//玩家ID
+}
+
+
+
+//11325查询功能
+message FindFriendByIdReq{
+	required int64 friendId=1;//玩家id
+	required int32 serverId=2;//服务器ID
+}
+
+//11325查询回复
+message FindFriendByIdResp{
+	required int32 type=1;//状态， 0 非好友，1，好友，2在黑名单
+	repeated FriendBasicInfo basic=2;
+}
+
+
+//11329 更新好友上限
+message UpdateFriendLimitInfo{
+	required int64 pid=1;
+	required int32 num=2;
+	required int32 type=3;// 0 登录，升级;1创建
+}
+
+
+// 11331 不同服，请求申请成为好友，发送到接收服
+message ApplyFriendToReceiveServerReq {
+	required int64 receivePlayerId = 1;//接收者ID	
+	required int64 applyId = 2;//申请者ID
+	required int32 applyerHead=3;//申请者头像
+	optional int32 applyerLevel=4;//申请者等级
+	optional string applyerNickName=5;//申请者昵称
+}
+
+//11332不同服，请求申请成为好友返回
+message ApplyFriendToReceiveServerResp{
+
+	required bool result=1;
+	required int64 applyPlayerId=2;
+}
+
+//11333 不同服删除好友请求
+message DeleteFriendOtherServerReq{
+
+	required int64 playerId = 1;
+	required int64 deletePlayerId=2;
+	
+}
+
+//11334不同服删除好友返回
+message DeleteFriendOtherServerResp{
+
+	required int32 result=1;
+	required int64 playerId=2;//操作删除的玩家ID
+	required int64 deletePlayerId=3;//被删除的玩家ID
+
+}
+
+//11335不同服加入黑名单请求
+message AddBlackOtherServerReq{
+
+	required int64 playerId=1;
+	required int64 addBlackPlayerId=2;
+}
+
+//11336不同服加入黑名单返回
+message AddBlackOtherServerResp{
+	required int64 playerId=1;
+	required int64 addBlackPlayerId=2;
+	required int32 result=3;//1成功
+}
+
+//11337不同服同意添加或拒绝好友请求
+message AgreeFriendOtherServerReq{
+	required int64 playerId=1;
+	required int64 applyPlayerId=2;
+	required int32 type=3;//操作，1 同意，2不同意
+	required int32 playerHead=4;//同意者头像
+	optional int32 playerLevel=5;//同意者等级
+	optional string playerNickName=6;//同意者昵称
+	
+}
+
+//11338不同服同意添加或拒绝好友返回
+message AgreeFriendOtherServerResp{
+	required int64 playerId=1;
+	required int64 applyPlayerId=2;
+	required int32 type=3;//操作，1 同意，2不同意
+	required int32 result=4;//1成功
+}
+
+
+
+
+// 单个军团数据
+message LegionInfo {
+	required int64 legionId = 1; // 军团ID
+	required int64 buildingId = 2; // 指挥所建筑id
+	required int32 allFc = 3; // 总战斗力
+	required string name = 4; // 军团名称
+	required int32 confidence = 5; //信心
+	required int32 maxConfidence = 6; //信心上限
+	required int32 train = 7; //训练
+	required int32 maxTrain = 8; //训练度上限
+	required int32 endTrainTime = 9; // 结束训练时间
+	required int32 sate = 10; //1:空闲状态,2:出征中
+	required int32 speed = 11; // 速度
+	required int32 atkCity = 12; // 攻城值
+	required int64 cityId = 13; // 所属城市ID
+	required int64 defend_city_id = 14; // 驻守城市ID
+}
+
+// 10400请求军团列表信息
+message LegionInfoListReq {
+}
+
+// 10400返回军团列表列表
+message LegionInfoListResp {
+	required LegionInfo info = 1;
+}
+
+// 10401请求官员上阵/更换官员
+message LegionEmbattleReq {
+	required int64 legionId = 1; // 军团ID
+	required int64 officialId = 2; // 官员ID
+	required int32 pos = 3; // 位置
+}
+
+// 10401返回军团更换结果
+message LegionEmbattleResp {
+	required int64 legionId = 1; // 军团ID
+	required int64 officialId = 2; // 官员ID
+}
+
+// 10402 请求官员互换
+message LegionExchangeReq {
+	required int64 legionId = 1; // 军团ID
+	required int64 officialId1 = 2; // 官员ID
+	required int64 officialId2 = 3; // 官员ID
+}
+
+// 10402 返回官员更换结果
+message LegionExchangeResp {
+	required int64 legionId = 1; // 军团ID
+	required int64 officialId1 = 2; // 官员ID
+	required int64 officialId2 = 3; // 官员ID
+}
+
+// 10403 军团名称修改请求
+message LegionAlterNameReq {
+	required int64 legionId = 1; // 军团ID
+	required string name = 2; // 军团名称
+}
+
+// 10403 返回军团名称修改结果
+message LegionAlterNameResp {
+	required int64 legionId = 1; // 军团ID
+}
+
+// 10404 选择兵种请求
+message LegionSwitchSoldierTypeReq {
+	required int64 legionId = 1; // 军团ID
+	required int64 officialId = 2; // 官员列表ID
+	required int32 soldierType = 3; // 兵种类型
+}
+
+// 10404 选择兵种请求
+message LegionSwitchSoldierTypeResp {
+	required int64 legionId = 1; // 军团ID
+	required OfficialInfo info = 2; // 官员数据
+}
+
+// 10405 请求补兵
+message LegionAddSoldierReq {
+	required int64 legionId = 1; // 军团ID
+	repeated int64 officialId = 2; // 官员列表ID
+}
+
+// 10405返回补兵结果
+message LegionAddSoldierResp {
+	required int64 legionId = 1; // 军团ID
+	repeated OfficialInfo info = 2; //官员数据
+}
+
+// 10406 请求训练军团
+message LegionTrainReq {
+	required int64 legionId = 1; // 军团ID
+}
+
+// 10406 训练结果
+message LegionTrainResp {
+	required int64 legionId = 1; // 军团ID
+	required int32 train = 2; // 训练度
+	required int32 endTrainTime = 3; // 结束训练时间
+}
+
+// 10407 训练加速请求
+message LegionTrainSpeedReq {
+	required int64 legionId = 1; // 军团ID
+}
+
+// 10407 训练加速兵营结果
+message LegionTrainSpeedResp {
+	required int64 legionId = 1; // 军团ID
+	required int32 endTrainTime = 2; // 结束训练时间
+}
+
+// 10408 请求士兵列表信息
+message LegionSoldierInfoListReq {
+	required int64 officialId = 1; // 官员Id
+}
+
+// 10408 返回士兵列表信息
+message LegionSoldierInfoListResp {
+	required int64 officialId = 1; // 官员Id
+	repeated SoldierInfo info = 2; // 士兵信息列表
+}
+
+//1 登录请求
+message LoginReq {
+	optional int32 time = 1;  // 时间戳秒
+	optional int32 device_type = 2; // 设备类型:1:ios，2:安卓;3:H5
+	optional string sign = 3;  // sign
+	optional string open_id = 4; // openid
+}
+
+//1 登录返回 同时会发送(PlayerInfoResp[2]、CityInfo[10003])
+message LoginResp {
+	required bool rs = 1;//登录结果，true表示登录成功，false表示登录失败
+	required int64 server_time = 2;
+	optional int32 forbid_time = 3;// 封号结束时间
+}
+
+// 5 登录结束协议
+message LoginEndResp{
+}
+enum OfficialEnum{
+	OFFICIIAL_LIST_MAX_COUNT = 60; // 单次下发官员的最大数量
+}
+
+// 单个技能信息
+message OfficialSkillInfo{
+	required int32 type = 1;// 技能类型
+	required int32 level = 2;// 技能等级
+	required double levelUpRate = 3;// 升级成功率
+}
+
+// 单个觉醒技能信息
+message OfficialAwakenSkillInfo{
+	required int32 type = 1;// 技能类型
+	required int32 level = 2;// 技能等级
+	required double levelUpRate = 3;// 升级成功率
+	required int32 rank = 4;// 阶级
+}
+
+// 单个官员信息
+message OfficialInfo{
+	required int64 officialId = 1;// 官员ID
+	required int64 cityId = 2; // 城市ID
+	required int64 buildingId = 3;// 所属建筑ID，空闲状态官员为0
+	required int64 typeId = 4;// 官员类型ID
+	required int32 level = 5;// 官员等级
+	required int32 levelUpEndTime = 6; // 升级结束时间
+	repeated OfficialSkillInfo skillInfo = 7;// 技能列表信息
+	required int32 slotNumber = 8;// 卡槽位置
+	optional OfficialAwakenSkillInfo awakenSkillInfo = 9;// 觉醒技能信息
+	optional int32 soldierType = 10;// 士兵类型
+	optional int32 soldierAmount = 11;// 士兵数量
+	optional int64 skillMergerId = 12;// 技能组合ID
+}
+
+// 单个招募池中官员信息
+message OfficerInfo{
+	required int64 officerId = 1;// 官员ID
+	required int64 typeId = 2;// 官员类型ID
+	required bool isRecruit = 3;// 是否被招募
+	repeated OfficialSkillInfo skillInfo = 4;// 技能列表信息
+}
+
+// 1200 请求官员列表
+message OfficialListReq{
+}
+
+// 1200 官员列表
+message OfficialListResp{
+	repeated OfficialInfo officialInfo = 1; // 官员列表
+	required bool endPacket = 2; // 包结束标志
+}
+
+// 1201 请求官员任命
+message OfficialAppointReq{
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2;// 建筑ID
+	required int64 officialId = 3;// 官员ID
+	required int32 slotNumber = 4;// 任命插槽编号
+}
+
+// 1201 官员任命结果
+message OfficialAppointResp{
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2;// 建筑ID
+	required int64 officialId = 3;// 官员ID
+	required bool rs = 4;// 官员任命结果
+}
+
+// 1202 请求官员调离
+message OfficialTransferReq{
+	required int64 officialId = 1;// 官员ID
+}
+
+// 1202 调离官员结果
+ message OfficialTransferResp{
+	required int64 officialId = 1;// 官员ID
+	required bool rs = 2;// 官员调离结果
+}
+
+// 1203 官员升级功能
+message OfficialLevelUpReq{
+	required int64 officialId = 1;// 官员ID
+}
+
+// 1203 官员升级结果
+message OfficialLevelUpResp{
+	required int64 officialId = 1;// 官员ID
+	required OfficialInfo info = 2;// 官员信息
+	required bool rs = 3;// 升级结果
+}
+
+// 1204 官员技能升级
+message OfficialSkillLevelUpReq{
+	required int64 officialId = 1;// 官员技能ID
+	required int32 skillType = 2;// 官员技能类型
+	required  bool isDirect = 3; // true:消耗砖石直接升级，false:普通升级
+}
+
+// 1204 官员技能升级升级结果
+message OfficialSkillLevelUpResp{
+	required int64 officialId = 1;// 官员ID
+	required int64 skillType = 2;// 官员技能类型
+	required double successRate = 3; // 升级成功率结果值
+	required bool rs = 4; // 升级结果
+}
+
+// 1205 请求官员升星
+message OfficialStarUpReq{
+	required int64 officialId = 1;// 官员技能ID
+	repeated int64 consumeOfficialId = 2;// 消耗的官员ID列表
+}
+
+// 1205 返回官员升星结果
+message OfficialStarUpResp{
+	required int64 officialId = 1;// 官员技能ID
+	required int32 starLevel = 2;// 官员星级
+}
+
+// 1206 请求官员升品
+message OfficialQualityUpReq{
+	required int64 officialId = 1;// 官员技能ID
+	repeated int64 consumeOfficialId = 2;// 消耗的官员ID列表
+}
+
+// 1206 返回官员升品结果
+message OfficialQualityUpResp{
+	required OfficialInfo info = 1;// 官员信息
+}
+
+// 1207 官员觉醒技能升级
+message OfficialAwakenSkillLevelUpReq{
+	required int64 officialId = 1;// 官员技能ID
+	required  bool isDirect = 2; // true:消耗砖石直接升级，false:普通升级
+}
+
+// 1207 返回觉醒技能升级结果
+message OfficialAwakenSkillLevelUpResp{
+	required int64 officialId = 1;// 官员技能ID
+	required double successRate = 2; // 升级成功率结果只
+	required bool rs = 3; // 升级结果
+}
+
+// 1208请求招募池信息
+message OfficialPoolInfoReq{
+}
+
+// 1208返回招募池信息
+message OfficialPoolInfoResp{
+	repeated OfficerInfo officers = 1;// 官员列表
+	required int32 nextUpdateTime = 2;// 下次更新时间
+	required int32 remainUpdateCount = 3;// 剩余的刷新次数
+}
+
+// 1209 请求刷新招募池
+message OfficialPoolUpdateReq{
+}
+
+// 1209 返回刷新结果
+message officialPoolUpdateResp{
+	repeated OfficerInfo officers = 1;// 官员列表
+	required int32 nextUpdateTime = 2;// 下次更新时间
+	required bool rs = 3;// 刷新结果
+}
+
+// 1210 官员招募
+message OfficialRecruitReq{
+	required int64 officialId = 1;// 招募池官员ID
+}
+
+// 1210 官员招募
+message OfficialRecruitResp{
+	required int64 officialId = 1;// 招募池官员ID
+	required bool rs = 2;//招募结果
+	optional OfficialInfo info = 3;// 官员信息
+}
+
+// 1213请求建筑官员列表
+message OfficialBuildingReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;//建筑ID
+}
+
+// 1213返回官员建筑官员列表
+message OfficialBuildingResp{
+	required int64 buildingId = 1;// 建筑ID
+	repeated OfficialInfo info = 2;// 官员列表
+}
+
+// 1214请求符合建筑的官员列表
+message OfficialBuildingAccordReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;//建筑ID
+	required int32 slotNumber = 3;//卡槽编号
+}
+
+// 1214返回符合建筑的官员列表
+message OfficialBuildingAccordResp{
+	required int64 buildingId = 1;// 建筑ID
+	repeated OfficialInfo info = 2;// 官员列表
+}
+
+// 1215 请求一建猎聘
+message OfficialHireReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;//建筑ID
+	required int32 slotNumber = 3;//卡槽编号
+}
+
+// 1215 返回猎聘结果
+message OfficialHireResp{
+	required int64 buildingId = 1;//建筑ID
+	required bool rs = 2;// 猎聘结果
+	optional OfficialInfo info = 3;// 官员信息
+}
+
+// 1216 请求加速升级
+message OfficialSpeedUpLevelUpReq{
+	required int64 officialId = 1;//官员ID
+}
+
+// 1216 返回加速升级结果
+message OfficialSpeedUpLevelUpResp{
+	required int64 officialId = 1;//官员ID
+}
+
+
+// 装饰类建筑最打长度
+enum OrnamentMaxEnum{
+	LIST_MAX_LEN = 60;
+}
+
+// 单个装饰类建筑信息
+message OrnamentInfo{
+	required int32 type = 1;// 装饰建筑类型
+	required int32 x = 2;// 位置x
+	required int32 y = 3;// 位置y
+}
+
+// 11802 购买装饰建筑上限
+message OrnamentBuyLimitReq{
+	required int64 cityId = 1;// 城市ID
+	required int32 type = 2; // 装饰建筑类型
+}
+
+// 11802 返回购买装饰建筑上限结果
+message OrnamentBuyLimitResp{
+	required int64 cityId = 1;// 城市ID
+	required bool rs = 2; // 结果
+}
+
+// 11803 获取装饰建筑列表
+message OrnamentInfoListReq{
+	required int64 cityId = 1;// 城市ID
+}
+
+// 11803 获取装饰建筑列表
+message OrnamentInfoListResp{
+	required int64 cityId = 1;// 城市ID
+	repeated OrnamentInfo info = 2;// 装饰建筑信息列表
+	required bool endPacket = 3;// 是否连接主干
+}
+
+// 11805 请求编辑编辑装饰建筑
+message OrnamentEditReq{
+	required int64 cityId = 1;// 城市ID
+	repeated OrnamentInfo createInfo = 2;// 建造装饰建筑信息列表
+	repeated OrnamentInfo removeInfo = 3;// 移除装饰建筑信息列表
+}
+
+// 11805 返回编辑编辑装饰建筑结果
+message OrnamentEditResp{
+	required int64 cityId = 1;// 城市ID
+	repeated OrnamentInfo createInfo = 2;// 建造装饰建筑信息列表
+	repeated OrnamentInfo removeInfo = 3;// 移除装饰建筑信息列表
+	required int64 errorCode = 4;// 错误码 [0:成功, 其他查看语言包]
+}
+
+// 11806 请求移动装饰类建筑
+message OrnamentMoveReq{
+	required int64 cityId = 1;// 城市ID
+	required OrnamentInfo info = 2;// 建造装饰建筑信息
+	required int32 x = 3;// 建筑新位置x
+	required int32 y = 4;// 建筑新位置y
+}
+
+// 11806 返回移动结果
+message OrnamentMoveResp{
+	required int64 cityId = 1;// 城市ID
+	required int64 errorCode = 2;// 错误码 [0:成功, 其他查看语言包]
+}
+
+
+//2 角色信息结果
+message PlayerInfoResp {
+	required int64 accountId = 1;// 角色id
+	required string nickName = 2;// 玩家昵称
+	required int64 goldCoin = 4;// 金币数量
+	required int64 silverCoin = 5;// 银币数量
+	required int64 diamond = 6;// 钻石数量
+	required int64 prestige = 7;// 威望
+	required int32 buildQueue = 8;// 建造队列
+	
+	required int32 talentPoints = 9;// 天赋点数
+	required int64 redCrystal = 10;// 红水晶
+	required int64 orangeCrystal = 11;// 橙水晶
+	required int64 yellowCrystal = 12;// 黄水晶
+	required int64 greenCrystal = 13;// 绿水晶
+	required int64 cyanCrystal = 14;// 青水晶
+	required int64 blueCrystal = 15;// 蓝水晶
+	required int64 purpleCrystal = 16;// 紫水晶
+	required int64 inkCrystal = 17;// 墨水晶
+	optional int32 remailTime=18;//剩余时间(单位秒)
+	
+	required int32 oneHourRax = 19;//税收速度
+	required int32 population = 20;//人口数量
+	required int32 level = 21;// 等级
+	required int64 exp = 22;// 经验
+	required int32 head = 23;// 头像
+	required string intro = 24;  // 简介
+}
+
+// 3 请求解锁
+message PlayerUnlockQueueReq{
+	required int32 queueType = 1;// 队列类型[1、建造队列, 2、行军队列, 3、科技队列]
+}
+
+// 3 解锁结果
+message PlayerUnlockQueueResp{
+	required int32 queueType = 1;// 队列类型[1、建造队列, 2、行军队列, 3、科技队列]
+	required bool rs = 2; // 解锁结果，true解锁成功，false解锁失败
+}
+
+// 4 通用提示消息
+message NotifyMsg{
+	required int32 msgType = 1;// 消息类型
+	required int64 msgId = 2;// 对应语言包配置表的ID
+}
+
+// 单个建造队列信息
+message BuildQueueInfo{
+	required int64 id = 1; //建筑ID
+	required int64 cityId = 2; // 城市ID
+	required int64 typeId = 3;// 建筑等级ID
+	required int32 endTime = 4; // 建筑建造结束时间
+	required int32 state = 5;// 建筑状态[0:正常,1:升级,2:建造,4:损坏状态] 
+}
+
+// 6 玩家队列
+message playerQueueInfoReq{
+}
+
+// 6 玩家队列
+message playerQueueInfoResp{
+	repeated BuildQueueInfo buildQueue = 1; // 建筑列表
+}
+
+// 7 玩家信息更新
+message PlayerAttrUpdateResp {
+	repeated PlayerAttrInfo attrInfo = 1;
+}
+
+message PlayerAttrInfo {
+	required int32 playerAttrType = 1;// 玩家属性类型
+	required int64 playerAttrValue = 2;// 玩家属性值
+}
+
+// 8 请求玩家附加信息
+message PlayerExtraInfoReq {
+	
+}
+
+// 8 返回玩家附加信息
+message PlayerExtraInfoResp {
+	required int32 oneHourRax = 1;//税收速度
+	required int32 population = 2;//人口数量
+}
+
+// 10 通用提示消息-snet
+message NotifySNetMsg{
+	required int32 msgType = 1;// 消息类型
+	required int64 msgId = 2;// 对应语言包配置表的ID
+	required int64 receiverId = 3;// 接收者id 
+}
+
+
+// 11000 请求人口信息
+message PopulationInfoReq{
+}
+
+// 11000 返回人口信息
+message populationInfoResp{
+	required int32 civilian = 1;// 平民人口
+	required int32 knight = 2;// 骑士人口
+	required int32 nobility = 3;// 贵族人口
+	required int32 workingCivilian = 4;// 工作中的平民人口
+	required int32 workingKnight = 5;// 工作中的骑士人口
+	required int32 workingNobility = 6; // 工作中的贵族人口
+}
+// 1500 请求进行中的任务
+message InProgressQuestListReq {
+	
+}
+
+// 1500 进行中的任务列表返回
+message InProgressQuestListResp {
+	repeated QuestInfo quests = 1;// 进行中的任务列表 
+}
+
+message QuestInfo {
+	required int32 questCfgId = 1;// 任务配置id
+	required string questSchedule = 2;// 任务进度
+	required int32 questStatus = 3;// 任务状态
+	optional int64 expiredTime = 4;// 任务过期时间
+}
+
+// 1501 领取任务奖励
+message ObtainQuestRewardReq {
+	required int32 questCfgId = 1;// 领取资源
+}
+
+message ObjectQuestRewardResp {
+	required bool rs = 1;// 结果
+}
+// 单个税收信息
+message RevenueInfo{
+	required int32 count = 1;// 次数
+	required int32 time = 2;// 征收时间
+	required int32 silver = 3;// 硬币
+	required int32 gold = 4;// 金币
+}
+
+// 11100 请求执政大厅信息
+message RulingHallInfoReq{
+}
+
+// 11100 返回执政大厅信息
+message RulingHallInfoResp{
+	required int32 buildingCount = 1;// 建筑的总数量
+	required int32 oneHourSilverRevenue = 2;// 一天银币的税收
+	required int32 oneHourGoldRevenue = 3;// 一天金币的税收
+	required int64 prosperous = 4;//繁荣度
+	required int32 curRevenueTime = 5;// 当前税收时间
+	repeated RevenueInfo info = 6;// 税收记录列表
+}
+
+// 11101 请求征收税收
+message RulingHallLevyRevenueReq{
+}
+
+// 11101 返回征收税结果
+message RulingHallLevyRevenueResp{
+	required int32 curSilverRevenue = 1;// 银币税收
+	required int32 curGoldRevenue = 2;// 金币税收
+	required int32 curRevenueTime = 3;// 下次可征收时间
+	repeated RevenueInfo info = 4;// 税收记录列表
+	required bool rs = 5;// 征收结果
+}
+
+
+// 领主联盟信息
+message SeigniorAllianceInfo {
+	required int32 title = 1;// 职位
+	required int32 officePost = 2;//爵位
+	required string name = 3; // 名称
+	required int32 level = 4; // 等级
+}
+
+// 领地信息
+message SeigniorManorInfo {
+	required int64 typeId = 1; // 领地配置ID
+	required int32 type = 2; //领地类型
+	required int32 x = 3; // 位置x
+	required int32 y = 4; // 位置y
+	required double durable = 5; //当前耐久
+	required double durableLimit = 6; //耐久度上限
+	required string name = 7;// 领地名称
+}
+
+// 领主信息
+message SeigniorDetailInfo{
+	required int64 playerId = 1; // 玩家ID
+	required string name = 2; // 玩家名称
+	required int32 head = 3; // 头像
+	required int32 level = 4; // 等级
+	required int32 exp = 5; // 经验
+	required int32 population = 6; // 人口
+	required int32 prestige = 7; // 威望
+	required string intro = 8; // 简介
+}
+
+// 11400 请求其他玩家领主信息
+message SeigniorOtherDetailInfoReq {
+	required int64 playerId = 1; // 玩家ID
+}
+
+// 11400 返回其他玩家的领主信息
+message SeigniorOtherDetailInfoResp {
+	required SeigniorDetailInfo detailInfo = 1;// 领主信息
+	optional SeigniorAllianceInfo allianceInfo = 2; // 联盟信息
+}
+
+// 11401 请求编辑领主简介
+message SeigniorEditIntroReq {
+	required string intro = 1; // 简介
+}
+
+// 11401 返回编辑结果
+message SeigniorEditIntroResp {
+	required string intro = 1; // 简介
+}
+
+// 11402 请求联盟信息
+message SeigniorAllianceInfoReq {
+	optional int64 playerId = 1; // 玩家ID
+}
+
+// 11402 返回联盟信息
+message SeigniorAllianceInfoResp {
+	optional int64 playerId = 1; // 玩家ID
+	optional SeigniorAllianceInfo info = 2; // 领主联盟信息
+}
+
+// 11403 请求领地信息
+message SeigniorManorInfoReq {
+	optional int64 playerId = 1; // 玩家ID
+}
+
+// 11403 返回领地信息
+message SeigniorManorInfoResp {
+	optional int64 playerId = 1; // 玩家ID
+	repeated SeigniorManorInfo info = 2; // 领地信息
+	required bool endPacket = 3; // 包结束标志
+}
+
+// 11404 请求其他玩家领主信息-snet
+message SeigniorOtherDetailInfoSnetReq {
+	required int64 operatorId = 1; // 操作玩家ID
+	required int64 playerId = 2;// 玩家ID
+}
+
+// 11404 返回其他玩家的领主信息-snet
+message SeigniorOtherDetailInfoSnetResp {
+	required int64 operatorId = 1; // 操作玩家ID
+	required SeigniorDetailInfo detailInfo = 2;// 领主信息
+	optional SeigniorAllianceInfo allianceInfo = 3; // 联盟信息
+}
+
+//1100 天赋列表请求
+message TalentListReq {
+}
+
+//1100 天赋列表响应
+message TalentListResp {
+	repeated TalentInfo info = 1;// 天赋列表
+}
+
+//单个天赋的基本信息
+message TalentInfo {
+	required int32 type = 1;//天赋类型
+	required int32 level = 2;//天赋登录
+	optional int32 levelUpEndTime = 3 [default = 0];//天赋剩余升级时间
+}
+
+//1101 请求升级一个天赋
+message TalentLevelUpReq {
+	required int32 type = 1;//天赋类型
+	required bool finish = 2;//是否立即完成
+}
+
+//1101 天赋升级结果
+message TalentLevelUpResp {
+	required bool rs = 1;//天赋升级操作结果，true为成功，false为失败
+	required TalentInfo info = 2;//天赋基本信息
+}
+
+//1102 激活天赋
+message TalentActivateReq {
+	required int32 type = 1;//天赋类型
+}
+
+//1102 激活天赋结果
+message TalentActivateResp {
+	required bool rs = 1;//天赋升级操作结果，true为成功，false为失败
+	required TalentInfo info = 2;//天赋基本信息
+}
+
+//1103 请求加速升级天赋
+message TalentSpeedLevelUpReq {
+	required int32 type = 1;//天赋类型
+}
+
+//1103 加速升级天赋结果
+message TalentSpeedLevelUpResp {
+	required bool rs = 1;//天赋id
+	required TalentInfo info = 2;// 天赋基本信息
+	required int32 castValue = 3;// 加速消耗的货币数量
+}
+
+// 1104 科技洗点
+message TalentPointsClearReq {
+	required int32 groupType = 1;// 洗点的天赋组
+}
+
+// 1104 科技洗点结果
+message TalentPointsClearResp {
+	required bool rs = 1;// 洗点结果
+	required int32 groupType = 2;// 洗点的天赋组
+}
+// 10700 请求运输站信息
+message TransportInfoReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+}
+
+// 10700 返回运输站信息
+message TransportInfoResp{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+	required int32 resourceType = 3;// 资源类型
+	required int32 resourceValue = 4;// 资源值
+	required int32 endTime = 5;// 运输到达时间
+	required int64 targetCityId = 6;// 目标城市ID
+}
+
+// 10701 请求运输
+message TransportResourceReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+	required int32 resourceType = 3;// 资源类型
+	required int32 resourceValue = 4;// 资源值
+	required int64 targetCityId = 5;// 目标城市ID
+}
+
+// 10701 返回运输结果
+message TransportResourceResp{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+	required int32 endTime = 3;// 运输到达时间
+}
+
+// 10702 请求停止运输
+message StopTransportReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+}
+
+// 10702 返回运输结果
+message StopTransportResp{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+}
+
+// 10703 请求加速运输
+message SpeedUpTransportReq{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+}
+
+// 10703 返回加速运输
+message SpeedUpTransportResp{
+	required int64 cityId = 1;// 城市ID
+	required int64 buildingId = 2;// 运输站建筑ID
+}
+//10900 武器工厂详细信息
+message WeaponFactoryInfoReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 武器工厂id
+}
+
+//10900 武器工厂详细信息
+message WeaponFactoryInfoResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 武器工厂id
+	optional int32 produceWeaponType = 3 [default = 0];// 生产的武器类型
+	optional int32 produceLeftAmount = 4 [default = 0];// 当前未生产数量
+	optional int32 produceEndTime = 5 [default = 0];// 剩余生产时间
+	required int32 storeLimit = 6;// 仓库容量上限
+}
+
+//10901 请求生产兵器
+message WeaponProduceReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 兵器工厂id
+	required int32 type = 3;// 要生产的兵器类型
+	required int32 number = 4;// 生产数量
+}
+
+//10901 生产兵器结果
+message WeaponProduceResp {
+	required bool rs = 1;// 结果，true为操作成功，false为操作失败
+	required int64 cityId = 2;
+	required int64 buildingId = 3;// 兵器工厂id
+	required int32 type = 4;// 要生产的兵器类型
+	required int32 produceEndTime = 5;// 结束生产时间
+}
+
+//10902 取消兵器生产
+message CancelWeaponProduceReq {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 兵器工厂id
+}
+
+//10902 取消兵器生产结果
+message CancelWeaponProduceResp {
+	required bool rs = 1;// 操作结果，true为操作成功，false为操作失败
+	required int64 cityId = 2;
+	required int64 buildingId = 3;// 兵器工厂id
+}
+
+//10903 请求加速兵器生产
+message SpeedWeaponProduceReq{
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 兵器工厂id
+}
+
+// 10903 加速兵器生产响应
+message SpeedWeaponProduceResp {
+	required bool rs = 1;//天赋id
+	required int32 castValue = 2;// 加速消耗的货币数量
+}
+
+// 10904 正在生产的兵器
+message BeingProduceWeaponListReq {
+	required int64 cityId = 1;
+}
+
+// 10904 正在生产的兵器
+message BeingProduceWeaponListResp{
+	repeated BeingProduceWeaponInfo info = 1;
+}
+
+//10905 请求立即完成生产兵器
+message WeaponFinishProduceReq {
+	required int64 cityId = 1; // 城市ID
+	required int64 buildingId = 2;// 兵器工厂id
+	required int32 type = 3;// 要生产的兵器类型
+	required int32 number = 4;// 生产数量
+}
+
+//10905 立即完成生产兵器结果
+message WeaponFinishProduceResp {
+	required int64 cityId = 1;
+	required int64 buildingId = 2;// 兵器工厂id
+	required int32 type = 3;// 要生产的兵器类型
+}
+
+message BeingProduceWeaponInfo{
+	required int32 produceWeaponType = 1;// 生产的武器类型
+	required int32 produceLeftAmount = 2;// 当前未生产数量
+	required int32 produceEndTime = 3;// 剩余生产时间
+}
+
+//10300 升级兵器
+message WeaponLevelUpReq {
+	required int32 type = 1;//兵器类型
+	required bool finsh = 2;//是否立即完成
+}
+
+//10300 升级兵器结果
+message WeaponLevelUpResp {
+	required bool rs = 1;// 操作结果，true为操作成功，false为操作失败
+	required int32 type = 2;// 兵器类型
+	optional int32 upgradeEndTime = 3 [default = 0];// 武器升级剩余时间
+}
+
+//10301 加速升级兵器
+message WeaponSpeedLevelUpReq {
+}
+
+//10301 加速升级兵器结果
+message WeaponSpeedLevelUpResp {
+	required bool rs = 1;// 操作结果，true为操作成功，false为操作失败
+	required int32 castValue = 2;// 加速升级消耗的货币数量
+}
+
+//10302 武器研究所详细信息
+message WeaponResearchInfoReq {
+}
+
+//10302 武器研究所详细结果
+message WeaponResearchInfoResp {
+	repeated WeaponInfo info = 1;// 武器信息列表
+}
+
+//10303 正在升级的武器
+message BegingLevelUpWeaponListReq {
+}
+
+//10303 正在升级的武器
+message BegingLevelUpWeaponListResp {
+	repeated WeaponInfo info = 1;// 武器信息列表
+}
+
+// 武器基本信息
+message WeaponInfo {
+	required int32 type = 1;// 武器类型
+	required int32 level = 2;// 武器当前等级
+	required int32 cfgId = 3;// 武器配置表id
+	optional int32 upgradeEndTime = 4 [default = 0];// 武器升级剩余时间
+}
+
+// 20000 请求世界地图指定坐标一个屏幕的信息
+message CellsInfoReq {
+	required int32 x = 1;// x坐标
+	required int32 y = 2; // y坐标
+	required bool first = 3;// 是否为切换场景
+}
+
+// 20000 返回地图列表信息
+message CellsInfoResp {
+	repeated CellInfo info = 1; // 单元格列表信息
+	optional bool isEndPacket=2;//是否最后一个包
+}
+
+
+// 20001 迁城
+message MoveCityReq {	
+	required int64 cityId = 1; // 主城池ID
+	required int64 targetCityId = 2; // 目标城池ID
+}
+
+// 20001 迁城结果
+message MoveCityResp {	
+	required bool result = 1; // 迁城结果
+}
+
+// 20002 行军
+message MoveToTargetReq {
+	required int32 x = 1; // x坐标
+	required int32 y = 2; // y坐标
+	required int64 corpsId = 3; // 军团ID
+	required int64 corpsBuildingId= 4;//军团建筑ID
+	required int32 type=5;//行军类型，1为出征，2为驻守,3为放弃驻守,4撤回,5调动,6回城,7探索
+	optional int32 terrain=6;//地形
+}
+
+// 20002 调用行军指令结果
+message MoveToTargetResp {
+	required bool result = 1; // 调用行军指令结果
+	optional int32 arrivedTime = 2; // 行军到达所需时间
+	optional int32 speed = 3; // 行军速度
+	optional int32 type = 4;//行军类型，1为出征，2为驻守,3为放弃驻守,4撤回,5调动,6回城,7探索
+	
+}
+
+// 20003 标记请求
+message SignReq {
+	required int32 x = 1;// x坐标
+	required int32 y = 2;// y坐标
+	optional string content = 3;// 标签，暂时这么处理
+	optional int64 signId = 4;
+	required int32 signType=5;//标记类型，1标记，2分享标记，3联盟标记（最多3个），4取消标记
+}
+
+//20003 标记请求返回
+message SignResp{
+	required bool result = 1;// x坐标
+	optional int64 signId = 2;// 添加ID ， 取消：1个人 2联盟
+}
+
+// 20004 获取标记列表
+message SignListReq {
+	
+}
+
+// 20004 标记列表返回
+message SignListResp {
+	repeated Sign list = 1; // 坐标列表
+}
+
+
+message Sign{
+	required int32 x = 1;//x坐标
+	required int32 y = 2;//y坐标
+	required string content = 3;// 标签内容
+	required int64 signId = 4;// 标示
+	required int32 signType=5;//标记类型，1自己标记，2联盟标记
+}
+
+
+
+// 20006 获取可出征世界军团列表
+message WorldCorpsListReq{
+	required int32 x = 1;// 世界目标坐标x;
+	required int32 y = 2;// 世界目标坐标y;
+
+}
+
+
+// 20006 军团列表返回
+message WorldCorpsListResp{
+	repeated PointInfo points = 1;
+}
+
+
+//20007请求玩家世界初始化信息
+message InitPlayerPushReq{
+
+}
+
+
+// 20007 推送玩家初始化完成信息
+message InitPlayerPush{
+	required int32 x = 1; // 城池在世界的坐标X
+	required int32 y = 2; // 城池在世界的坐标Y
+}
+
+//20008请求创建分城或要塞
+message CreateCityReq{
+
+	required int32 x = 1; // 新城池在世界的坐标X
+	required int32 y = 2; // 新城池在世界的坐标Y
+	required int32 type=3;//2为分城，3为要塞
+	required string name=4;//
+	
+}
+
+//20008返回创建分城结果
+message CreateCityResp{
+
+	required int64 newCityId = 1;//新创建的城池ID
+	required int32 x = 2; // 新城池在世界的坐标X
+	required int32 y = 3; // 新城池在世界的坐标Y
+	required bool rs = 4;//创建是否成功
+	required int32 type=5;//2为分城，3为要塞
+	required string name=6;//
+}
+
+//20009请求攻击地块
+message AttackTileReq{
+	
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required int64 corpsId=4;//攻击军团ID
+
+}
+
+//20009返回攻击地块结果
+message AttackTileResp{
+
+	required int64 playerId=1;
+	required int32 x=2;//攻打坐标
+	required int32 y=3;//攻打坐标
+	required bool rs=4;//结果
+	optional int32 defendType=5;//驻军类型，0无驻军，1自己驻军
+	optional int32 goBackTargetX=6;//返回目标X
+	optional int32 goBackTargetY=7;//返回目标Y
+	optional int32 endTime=8;//结束时间
+	optional int64 corpsId=9;//军团ID
+
+}
+
+//20010请求放弃地块
+message GiveUpTileReq{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required int32 type=4;//1放弃地块，2取消放弃地块
+	
+}
+
+//20010返回放弃地块结果
+message GiveUpTileResp{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required bool rs=4;//放弃结果
+	required int32 endTime=5;//结束时间戳
+	required int32 type=6;//1放弃地块，2取消放弃地块
+
+}
+
+//20011请求驻守地块
+message DefendTileReq{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+}
+
+//20011驻守结果返回
+message DefendTileResp{
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+	required bool rs=6;//驻守结果
+	
+}
+
+//20012放弃驻军请求
+message RevokeDefendTileReq{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+	
+}
+
+//20012放弃驻军返回
+message RevokeDefendTileResp{
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+	required bool rs=6;//结果
+}
+
+//20013放弃行军请求
+message GiveUpWalkReq{
+
+	required int64 corpsId=1;//军团ID
+	
+}
+
+//20013放弃行军返回
+message GiveUpWalkResp{
+
+	required int64 corpsId=1;//军团ID
+	required int32 targetX=2;
+	required int32 targetY=3;
+	required int32 endTime=4;//结束时间戳
+	required bool rs=5;//放弃结果
+}
+
+//20014请求要塞升级
+message WorldCityLevelUpReq{
+	
+	required int64 cityId=1;//要塞ID
+}
+
+//20014返回要塞升级结果
+message WorldCityLevelUpResp{
+
+	required int64 cityId=1;
+	required bool rs = 2;
+	required int32 newLevel=3;
+}
+
+//20015请求要塞内的军团列表
+message WorldGetFortCorpsReq{
+
+	required int32 x=1;
+	required int32 y=2;
+	required int64 cityId=3;//要塞ID
+}
+
+//20015返回要塞内的军团列表
+message WorldGetFortCorpsResp{
+
+	repeated PointInfo infos=1;
+}
+
+//20016请求查看世界地块资源信息
+message WorldTileResourceReq{
+	optional int64 playerId=1;
+}
+
+//20016返回查看世界地块资源信息
+message WorldTileResourceResp{
+
+	repeated WorldTileResourceValueData datas=1;
+}
+
+//20017请求领取世界地块资源
+message WorldReceiveResourceReq{
+
+}
+
+//20017返回领取世界地块资源
+message WorldReceiveResourceResp{
+
+	repeated WorldTileResourceValueData datas=1;//领取到的值
+}
+
+//20018 返回地图行军信息
+message CellsPathInfoResp {
+	repeated Path pathInfo = 1;// 路径
+	optional bool isEndPacket=2;//是否最后一个包
+}
+
+//20019放弃NPC大城请求
+message WorldGiveUpNpcBossTownReq{
+
+	required int32 x=1;
+	required int32 y=2;
+}
+
+//20019放弃NPC大城返回
+message WorldGiveUpNpcBossTownResp{
+
+	required int32 x=1;
+	required int32 y=2;
+	required bool rs = 3;
+}
+
+message WorldTileResourceValueData{
+
+	optional int32 type=1;//资源类型
+	optional int32 value=2;//资源值
+}
+
+
+
+// 出发点信息
+message PointInfo{
+	required string name = 1; // 据点名
+	required int32 distance = 2;// 距离
+	required int32 corpsNum = 3;// 军团数量
+	repeated CorpsInfo corpsInfos = 4;// 可出征的军团
+	required int32 x = 5;// x坐标
+	required int32 y = 6;// y坐标
+}
+
+// 军团信息
+message CorpsInfo {
+	required int64 cityId=1;//所在城市ID
+	required int64 corpsId = 2;// 军团标示
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 level = 4;// 军团等级
+	required int32 state = 5;// 军团状态
+	required int32 soldiers = 6;// 兵力
+	required int32 attack=7;//攻城
+	required int32 speed=8;//速度
+	required int32 needPower=9;//消耗体力
+	required int32 distance=10;//行军距离
+	required int32 needTime=11;//所需时间，单位秒
+	optional int32 originX=12;//原本城市的X
+	optional int32 originY=13;//原本城市的Y
+	
+}
+
+
+
+//单元格信息
+message CellInfo {
+	required int32 x = 1; //x坐标
+	required int32 y = 2; //y坐标
+	required string name = 3; // 城池名
+	required int64 cityId = 4; // 城池标示
+	required int64 playerId = 5; // 玩家标示
+	required int32 terrain = 6;// 地形
+	optional int32 level = 7; // 玩家等级
+	optional int32 tileType=8;//0普通地块,1主城，2分城，3要塞,4npc小城，5npc大城,6npc大城周边格子
+	optional double allDurability=9;//总耐久度
+	optional double currentDurability=10;//当前耐久度
+	optional int32 defendType=11;//驻军类型，0无驻军，1自己驻军，2联盟驻军，3敌军驻军
+	repeated CellSignInfo signs=12;//0未标记，1个人标记,2联盟标记
+	optional int32 giveUpEndTime=13;//放弃地块结束时间戳
+	optional string playerName=14;//玩家名称
+	optional bool isHaveRandomEvent=15;//是否存在随机事件
+	optional int64 randomEventId=16;//随机事件ID
+	optional int64 eventEndTime=17;//随机事件结束时间
+	
+}
+
+message CellSignInfo{
+	required int32 signType=1;//1个人标记,2联盟标记
+	required int64 signId=2;//标记ID
+}
+
+message Path{
+	required int32 originX = 1; // 路径起始坐标X
+	required int32 originY = 2; // 路径起始坐标Y
+	required int32 targetX = 3; // 路径目标坐标X
+	required int32 targetY = 4; // 路径目标坐标Y
+	required int32 type = 5; // 行军类型，1为出征，2为驻守,3为放弃驻守，4撤回,5调动,6从要塞回城,7探索
+	required int32 startTime = 6;//行军开始时间
+	required int32 endTime = 7;//行军结束时间
+	required int64 corpsId = 8;//军团ID
+	required int32 lineType=9;//行军路线类型，1为自己，2为敌军，3为盟军
+	required int32 soldiersCount=10;//带兵数量
+	required int64 playerId=11;
+}
+
+//101创建主城
+message WorldCreateMainCityReq{
+
+	optional int64 playerId = 1;
+	optional int64 cityId = 2;
+	optional string name = 3;
+	optional int32 type = 4;//城市类型
+	optional int64 taskId = 5;//任务ID
+	optional int32 rulingHallLevel=6;//元老院等级
+	
+	
+}
+
+//101返回创建主城信息
+message WorldCreateMainCityResp{
+
+	optional int64 cityId=1;
+    optional int64 errorCode=2;
+    optional int64 playerId=3;
+    optional int32 x=4;
+    optional int32 y=5;
+	optional int32 type=6;//类型
+	required int64 taskId = 7;//任务ID
+
+}
+
+
+//102移动城市
+message WorldMoveCityReq{
+
+	optional int64 playerId=1;
+	optional int64 mainCityId=2;//主城ID
+	optional int64 targetCityId=3;//目标城市ID
+	optional int64 taskId = 4;//任务ID
+	
+}
+
+//102移动城市返回
+message WorldMoveCityResp{
+
+	optional int64 playerId=1;
+	optional int64 mainCityId=2;//主城ID
+	optional int64 targetCityId=3;//目标城市ID
+	optional int64 taskId = 4;//任务ID
+	optional bool rs = 5;//结果
+	optional int64 errorCode = 6;
+	optional int32 terrain=7;//地形
+}
+
+//103查看世界
+message WorldViewReq{
+	required int32 x = 1;// x坐标
+	required int32 y = 2; // y坐标
+	optional int64 playerId = 3;// 玩家ID
+}
+
+//103查看世界地块返回,128是行军
+message WorldViewTileResp{
+	repeated WorldTileInfo info = 1; // 地块信息
+	optional int64 playerId = 2;// 玩家ID
+	optional bool isEndPacket=3;//是否最后结束包
+}
+
+
+//106创建城市
+message WorldCreateCityReq{
+
+	optional int64 playerId = 1;
+	optional int64 cityId = 2;
+	optional string name = 3;
+	optional int32 type = 4;//城市类型
+	optional int64 taskId = 5;//任务ID
+	optional int32 x=6;//x坐标
+	optional int32 y=7;//y坐标
+	optional string playerName=8;
+	
+	
+}
+
+//106返回创建城市信息
+message WorldCreateCityResp{
+
+	optional int64 cityId=1;
+    optional int64 errorCode=2;
+    optional int64 playerId=3;
+    optional int32 x=4;
+    optional int32 y=5;
+	optional int32 type=6;//类型
+	required int64 taskId = 7;//任务ID
+	required bool rs = 8;//创建结果
+	optional string name=9;
+	optional string playerName=10;
+
+}
+
+//107请求创建新城市前判断并锁定地块
+message WorldCreateCityLockTileReq{
+
+	optional int64 playerId=1;
+	optional int64 cityId=2;
+	optional int32 x=3;
+	optional int32 y=4;
+	required int32 type=5;//2为分城，3为要塞
+	optional string name=6;//
+	
+}
+
+//107返回创建新城市千判断并锁定地块
+message WorldCreateCityLockTileResp{
+
+	optional int64 playerId=1;
+	optional int32 x=2;
+	optional int32 y=3;
+	optional bool rs=4;//锁定结果
+	optional int64 errorCode=5;
+	required int32 type=6;//2为分城，3为要塞
+	optional string name=7;
+	optional int32 terrain=8;//地形
+
+}
+
+//108请求攻击地块
+message WoldAttackTileFirstReq{
+
+	required int64 attackPlayerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required int64 corpsId=4;//攻击军团ID
+
+}
+
+//108返回战斗信息
+message WoldAttackTileFirstResp{
+
+	optional int64 attackPlayerId=1;//攻击方
+	optional int64 corpsId=2;//攻击方军团ID
+	optional int64 defendPlayerId=3;//防守方
+	optional int32 x=4;
+	optional int32 y=5;
+	optional bool isCanAttack=6;//是否可攻击
+	optional int32 terrain=7;//地形
+	repeated WorldDefendCorpsInfo corps=8;//驻守军团信息
+	optional int32 tileId=9;//地块ID
+	repeated WorldRandomEventNpcData randomEventDatas=10;//地块随机事件守军
+	optional int64 taskId=11;//战斗任务ID,原值返回即可
+	optional double attackCityValue=12;//攻城值,原值返回即可
+}
+
+//随机事件NPC守军
+message WorldRandomEventNpcData{
+
+	optional int64 randomEventNpcId=1;//地块随机事件守军ID
+	optional int32 randomEventNpcCount=2;//守军数量
+
+}
+
+//地块军团驻守信息
+message WorldDefendCorpsInfo{
+
+	required int64 corpsId=1;//军团ID
+	required int64 corpsBuildingId=2;//军团建筑ID
+	required int64 corpsTime=3;//驻守时间
+}
+
+//109请求守城方信息
+message WoldAttackTileGetTargetPlayerInfoReq{
+
+	required int64 attackPlayerId=1;//攻击方
+	required int64 defendPlayerId=2;//防守方
+}
+
+//109返回守城方信息
+message WoldAttackTileGetTargetPlayerInfoResp{
+
+
+}
+
+//110攻击地块战斗结果发送给世界请求
+message WoldAttackTileResultReq{
+
+	required int64 attackPlayerId=1;//攻击方
+	optional int32 attackPlayerSourceId=2;//攻击方来源
+	optional int64 defendPlayerId=3;//防守方
+	optional int32 defendPlayerSourceId=4;//防守方来源ID
+	required string attackPlayerName=5;//攻击方名字
+	required int32 x=6;
+	required int32 y=7;
+	required int64 corpsId=8;//战斗军团ID
+	required bool result=9;//true攻击方胜，false防守方胜
+	repeated WorldDefendCorpsBattleResultData corpDefendResult=10;//驻守军团信息
+	repeated WoundedSoldier attackWoundedSoldierDatas=11;//攻击方伤兵数量
+	repeated WoundedSoldier defendWoundedSoldierDatas=12;//防守方伤兵数量
+	optional int64 taskId=13;//任务ID
+	optional double attackCityValue=14;//攻城值
+}
+
+//防守军团战斗结果
+message WorldDefendCorpsBattleResultData{
+
+	optional int64 corpsId=1;//防守军团ID
+	optional bool defendRuslt=2;//防守结果，true为防守方赢，false为攻击方赢
+}
+
+//110战斗结果世界处理后返回
+message WoldAttackTileResultResp{
+
+	required int64 attackPlayerId=1;//攻击方
+	required int32 attackPlayerSourceId=2;//攻击方来源
+	optional int64 defendPlayerId=3;//防守方
+	optional int32 defendPlayerSourceId=4;//防守方来源
+	required int32 x=5;
+	required int32 y=6;
+	optional int32 terrain=7;
+	required bool rs=8;//处理结果
+	optional int32 goBackTargetX=9;
+	optional int32 goBackTargetY=10;
+	optional int32 endTime=11;//结束时间
+	optional int64 corpsId=12;//军团ID
+	repeated WoundedSoldier attackWoundedSoldierDatas=13;//攻击方伤兵数量
+	repeated WoundedSoldier defendWoundedSoldierDatas=14;//防守方伤兵数量
+	repeated WorldDefendCorpsInfo corps=15;//驻守军团信息
+	optional bool isCanAttack=16;//是否可攻击
+}
+
+message WoundedSoldier{
+
+	optional int64 barracksId=1;//兵营ID
+	optional int32 wounderSoldierCount=2;//伤兵数量
+
+}
+
+
+//111 获取行军信息
+message WorldCollectWalkInfoReq{
+	required int32 originX = 1; //发起地x
+	required int32 originy = 2; //发起地y 
+	required int32 targetX = 3; // 目标地X
+	required int32 targetY = 4; // 目标地y
+	required int64 corpsId = 5;// 发起行军的军队ID
+	required int64 playerId = 6;// 玩家ID
+	required int32 type=7;//行军类型，1为出征，2为驻守,3为放弃驻守，4撤回,5调动,6从要塞回城,7探索
+	optional int32 defendCorpsLimit=8;//驻守军团上限
+	
+}
+
+// 111 获取行军信息返回
+message WorldCollectWalkInfoResp{
+	required int64 corpsId = 1;// 发起行军的军队ID
+	required int64 playerId = 2;// 玩家ID
+	required int32 originX = 3; //发起地x
+	required int32 originy = 4; //发起地y 
+	required int32 targetX = 5; // 目标地X
+	required int32 targetY = 6; // 目标地y
+	required int32 type=7;//行军类型，1为出征，2为驻守,3为放弃驻守，4撤回,5调动,6从要塞回城,7探索
+	required bool isCanWalk=8;//是否可以行军
+	optional int32 errorCode=9;//错误码
+}
+
+// 112 上传给世界服的路径信息
+message WorldPathInfoReq{
+	required WorldPathInfo pathInfo = 1; // 路径信息
+	required int64 corpsId = 2; // 军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int64 limitTime = 4; // 截止时间
+	required int64 ownerId = 5;// 玩家标示
+	optional double attackCityValue=6;//攻城值
+}
+
+
+
+// 113 行军到达目标点
+message WorldWalkArrivedReq{
+	required int64 ownerId = 1;// 玩家ID
+	required int64 armyId = 2;// 军队ID
+	required int32 x = 3;//目标坐标x
+	required int32 y = 4;//目标坐标y
+}
+
+//114请求迁城前判断并锁定地块
+message WorldMoveCityLockTileReq{
+
+	optional int64 playerId=1;
+	optional int64 cityId=2;
+	optional int32 x=3;
+	optional int32 y=4;
+	
+	optional int64 targetCityId=5;
+	optional int32 targetX=6;
+	optional int32 targetY=7;
+	
+}
+
+//114返回迁城前判断并锁定地块结果
+message WorldMoveCityLockTileResp{
+	optional int64 playerId=1;
+	optional bool rs=2;//锁定结果
+	optional int64 cityId = 3;
+	optional int64 targetCityId=4;
+	optional int64 errorCode=5;
+
+}
+
+//115请求放弃地块
+message WorldGiveUpTileReq{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required int32 type=4;//1放弃地块，2取消放弃地块
+}
+
+//115放弃地块返回
+message WorldGiveUpTileResp{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required bool rs=4;
+	optional int64 errorCode=5;
+	required int32 type=6;//1放弃地块，2取消放弃地块
+	required int64 endTime=7;//结束时间戳
+}
+
+//116请求驻守地块
+message WorldDefendReq{
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+}
+
+//116驻守地块返回
+message WorldDefendResp{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+	required bool rs=6;//驻守结果
+	required int64 errorCode=7;
+
+}
+
+//117请求撤军
+message WorldRevokeDefendReq{
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+}
+
+//117撤军返回
+message WorldRevokeDefendResp{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;//军团ID
+	required int64 corpsBuildingId=3;//军团建筑ID
+	required int32 x=4;
+	required int32 y=5;
+	required bool rs=6;//结果
+	required int64 errorCode=7;
+
+}
+
+//118原路返回，改变军团状态
+message WorldGoBackResp{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;
+
+}
+
+
+
+
+//119行军结束推送
+message WorldCorpsWalkEndResultResp{
+
+	required int64 playerId=1;//玩家ID
+	required int32 x = 2; //目的地x坐标
+	required int32 y = 3; //目的地y坐标
+	required int64 corpsId=4;//军团ID
+	required int32 type=5;//行军类型，1为出征，2为驻守,3为原路返回,4战斗中，等待战斗结果返回
+	optional int32 goBackTargetX=6;//返回目标X
+	optional int32 goBackTargetY=7;//返回目标Y
+	optional int32 endTime=8;//结束时间
+	optional int64 taskId=9;//任务ID
+}
+
+
+//行军结束请求移除行军路径
+message WorldCorpsWalkEndRemovePathReq{
+	required int64 corpsId=4;//军团ID
+}
+
+
+//120放弃行军请求
+message WorldGiveUpWalkReq{
+
+	required int64 corpsId=1;//军团ID
+	
+}
+
+//120放弃行军返回
+message WorldGiveUpWalkResp{
+	required int64 playerId=1;//
+	required int64 corpsId=2;//军团ID
+	required int32 targetX=3;
+	required int32 targetY=4;
+	required int32 endTime=5;//结束时间戳
+	required bool rs=6;
+}
+
+//121消息确认收到返回
+message WorldTaskFinishConfirmReq{
+
+	required int64 taskId=1;
+	required int64 playerId=2;
+}
+
+//122请求世界未处理消息列表
+message WorldTaskListReq{
+
+	optional int64 playerId=1;
+}
+
+//122返回世界未处理消息列表
+message WorldTaskListResp{
+
+	optional int64 playerId=1;
+	repeated WorldTaskData datas=2;
+}
+
+//123请求2个玩家之间主城距离
+message WorldGetPlayersDistanceReq{
+
+	required int64 initiatorPlayerId=1;//发起方ID
+	required int64 targetPlayerId=2;//目标ID
+}
+
+
+
+//124获取玩家占领地块信息请求
+message WorldGetPlayerTileInfoReq{
+
+	optional int64 playerId=1;
+}
+
+//124获取玩家占领地块信息返回
+message WorldGetPlayerTileInfoResp{
+
+	repeated WorldTileInfo datas=1;
+}
+
+
+//125地块特殊事件推送返回
+message WorldEventResultResp{
+
+	optional WorldEventData data = 1;
+	
+	
+}
+
+
+//126请求查看世界地块资源
+message WorldGetTileResourceReq{
+
+	optional int64 playerId=1;
+}
+
+//126世界地块资源返回
+message WorldGetTileResourceResp{
+	optional int64 playerId=1;
+	repeated TileRecourceData datas=2;
+}
+
+
+//127请求领取世界地块资源
+message WorldReceiveTileResourceReq{
+
+	optional int64 playerId=1;
+}
+
+//127领取世界地块资源返回
+message WorldReceiveTileResourceResp{
+	optional int64 playerId=1;
+	repeated TileRecourceData datas=2;
+	
+}
+
+
+//128查看世界行军
+message WorldViewPathReq{
+	required int32 x = 1;// x坐标
+	required int32 y = 2; // y坐标
+	optional int64 playerId = 3;// 玩家ID
+}
+
+//128查看世界地块返回
+message WorldViewPathResp{
+	optional int64 playerId = 1;// 玩家ID
+	repeated WorldPathInfo route=2;//路径信息
+	optional bool isEndPacket=3;//是否最后结束包
+}
+
+//129预警信息推送
+message WorldAttackWarningResp{
+
+	optional int64 wariningPlayerId=1;//预警玩家ID
+	optional int64 attackPlayerId=2;//攻击玩家ID
+	optional string attackPlayerName=3;//攻击玩家名字
+	optional int32 originX=4;//攻击者的出发点坐标x
+	optional int32 originY=5;//攻击者的出发点坐标y
+	optional int32 targetX=6;//目标坐标x
+	optional int32 targetY=7;//目标坐标y
+	optional int64 attackCorpsId=8;//军队ID
+	optional int64 endTime=9;//结束时间
+	optional int64 startTime=10;//行军开始时间
+	
+}
+
+//130请求放弃NPC大城
+message WorldGiveUpTownReq{
+	
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+}
+
+//130放弃NPC大城返回
+message WorldGiveUpTownResp{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required bool rs=4;
+	optional int32 errorCode=5;//错误码
+}
+
+//131被占领后放弃驻守推送
+message WorldRevokeDefendEventResp{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;
+}
+
+//132创建分城或要塞失败请求世界服解锁地块
+message WorldCreateCityFailUnlockTileReq{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	required int64 taskId=4;
+}
+
+//133创建分城或要塞失败返回
+message WorldCreateCityFailUnlockTileResp{
+	required int64 taskId=1;
+}
+
+//134获取世界军团状态请求
+message WorldCropsStateReq{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;
+}
+
+//135获取世界军团状态返回
+message WorldCropsStateResp{
+
+	required int64 playerId=1;
+	required int64 corpsId=2;
+	required bool isDefend=3;//是否在驻守状态
+	optional int32 x=4;
+	optional int32 y=5;
+}
+
+//136放弃地块或取消放弃地块数据同步请求
+message WorldGiveUpTileConfirmReq{
+
+	required int64 playerId=1;
+	repeated TileData datas=2;
+}
+
+//137放弃地块或取消放弃地块数据同步返回
+message WorldGiveUpTileConfirmResp{
+	
+	required int64 playerId=1;
+	repeated TileData datas=2;
+}
+
+message TileData{
+
+	required int64 playerId=1;
+	required int32 x=2;
+	required int32 y=3;
+	optional int64 cityId=4;
+	optional int32 type=5;//放弃类型,1为放弃,2为取消放弃
+	optional int64 giveUpEndTime=6;
+}
+
+
+
+
+//地块资源信息
+message TileRecourceData{
+
+	optional int32 type=1;//资源类型
+	optional int32 value=2;//资源值
+}
+
+//地块特殊事件数据
+message WorldEventData{
+
+	optional int64 playerId=1;
+	optional int64 eventId=2;//事件ID
+
+}
+
+
+
+message WorldTaskData{
+
+	optional int64 taskId=1;
+	optional int32 type=2;
+	optional WorldPathDto worldPathDto=3;
+	optional WorldGiveUpTileDto worldGiveUpTileDto=4;
+	optional WorldEventData worldEventData=5;
+
+}
+
+message WorldPathDto{
+
+	optional int64 id = 1;
+	optional int64 ownerId=2;
+	optional int32 originX=3;
+	optional int32 originY=4;
+	optional int32 targetX=5;
+	optional int32 targetY=6;
+	optional int64 corpsId=7;
+	optional int32 type=8;
+	optional int64 taskId=9;
+}
+
+message WorldGiveUpTileDto{
+
+	optional int64 ownerId=1;
+	optional int32 x=2;
+	optional int32 y=3;
+	optional int32 type=4;
+	optional int64 taskId=5;
+	optional int64 endTime=6;
+}
+
+
+
+//单元格信息
+message WorldTileInfo {
+	required int32 x = 1; //x坐标
+	required int32 y = 2; //y坐标
+	optional string name = 3; // 城池名
+	optional int64 cityId = 4; // 城池标示
+	optional int64 playerId = 5; // 玩家ID
+	required int32 terrain = 6;// 地形
+	optional int32 tileType=7;//0普通地块,1主城，2分城，3要塞,4npc小城，5npc大城,6npc大城周边格子
+	optional double allDurability=8;//总耐久度
+	optional double currentDurability=9;//当前耐久度
+	optional int32 defendType=10;//驻军类型，0无驻军，1自己驻军，2联盟驻军，3敌军驻军
+	optional int32 giveUpEndTime=11;//放弃地块结束时间戳
+	optional string playerName=12;//玩家名称
+	optional bool isHaveRandomEvent=13;//是否存在随机事件
+	optional int64 randomEventId=14;//随机事件ID
+	optional int64 eventEndTime=15;//随机事件结束时间
+	
+}
+
+// 行军路径
+message WorldPathInfo {
+	required int32 originX = 1;// 路径起始坐标X
+	required int32 originY = 2;// 路径起始坐标Y
+	required int32 targetX = 3;// 路径目标坐标X
+	required int32 targetY = 4;// 路径目标坐标Y
+	optional int32 type = 5;  // 行军类型，1为出征，2为驻守
+	required int64 startTime=6;//开始时间
+	required int64 endTime=7;//结束时间
+	required int64 corpsId=8;//军团ID
+	required int32 lineType=9;//行军路线类型，1为自己，2为敌军，3为盟军
+	required int32 soldiersCount=10;//带兵数量
+	required int64 playerId=11;
+}

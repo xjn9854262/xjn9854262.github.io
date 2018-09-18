@@ -1,0 +1,12 @@
+{"file":"battle_tips.png","frames":{
+"img_bg_green":{"x":336,"y":107,"w":119,"h":23,"offX":0,"offY":0,"sourceW":119,"sourceH":23},
+"img_bg_hp_bar":{"x":249,"y":298,"w":176,"h":13,"offX":0,"offY":0,"sourceW":176,"sourceH":13},
+"img_bg_left":{"x":0,"y":0,"w":334,"h":258,"offX":0,"offY":0,"sourceW":334,"sourceH":258},
+"img_bg_red":{"x":336,"y":82,"w":119,"h":23,"offX":0,"offY":0,"sourceW":119,"sourceH":23},
+"img_bg_tips":{"x":249,"y":260,"w":226,"h":36,"offX":0,"offY":0,"sourceW":226,"sourceH":36},
+"img_hp_bar_g":{"x":336,"y":173,"w":170,"h":11,"offX":0,"offY":0,"sourceW":170,"sourceH":11},
+"img_hp_bar_r":{"x":336,"y":186,"w":170,"h":11,"offX":0,"offY":0,"sourceW":170,"sourceH":11},
+"img_kill_icon":{"x":0,"y":260,"w":247,"h":247,"offX":0,"offY":0,"sourceW":247,"sourceH":247},
+"img_text_kill":{"x":336,"y":132,"w":59,"h":39,"offX":0,"offY":0,"sourceW":59,"sourceH":39},
+"tb_tx_k_00":{"x":336,"y":0,"w":80,"h":80,"offX":0,"offY":0,"sourceW":80,"sourceH":80},
+"tb_tx_k_01":{"x":418,"y":0,"w":80,"h":80,"offX":0,"offY":0,"sourceW":80,"sourceH":80}}}

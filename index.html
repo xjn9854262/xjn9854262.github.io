@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+
+<head id="32">
+    <meta charset="utf-8">
+    <title>三国塔防</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta id="safari-app-capable" name="apple-mobile-web-app-capable" content="no"/>
+    <meta id="safari-app-bar-style" name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="landscape" />
+    <!--portrait-->
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <script src="loginjs/jquery-3.2.1.min.js"></script>
+    <style>
+        html,
+        body {
+            padding-top: 20px;
+            -ms-touch-action: none;
+            background: #000;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+    <link rel = "Shortcut Icon" href=/FSfavicon.ico>
+</head>
+
+
+<script type="text/javascript">
+    !(function (win, doc) {
+        function setFontSize() {
+            var rate = 1.78;
+            var winWidth = document.documentElement.clientWidth;
+            var winHeight = document.documentElement.clientHeight;
+            if (winHeight / winWidth < rate) {
+                var size = winHeight / rate / 10;
+            } else {
+                var size = winWidth / 10;
+            }
+            doc.documentElement.style.fontSize = size + 'px';
+        }
+
+        var evt = 'onorientationchange' in win ? 'orientationchange' : 'resize';
+        var timer = null;
+        win.addEventListener(evt, function () {
+            clearTimeout(timer);
+            timer = setTimeout(setFontSize, 100);
+            changeMode();
+        }, false);
+
+        win.addEventListener("pageshow", function (e) {
+            if (e.persisted) {
+                clearTimeout(timer);
+                timer = setTimeout(setFontSize, 100);
+                changeMode();
+            }
+        }, false);
+
+        // 初始化
+        setFontSize();
+    } (window, document));
+
+    $.random = function (n1, n2) {
+        return Math.round(Math.random() * (Math.max(n1, n2) - Math.min(n1, n2)), 0);
+    }
+    $("head").append("<link>");
+    var css = $("head").children(":last");
+    css.attr({
+        rel: "stylesheet",
+        type: "text/css",
+        href: "css/style.css?" + Math.random()
+    });
+
+    function changeMode() {
+        var winWidth = document.documentElement.clientWidth;
+        var winHeight = document.documentElement.clientHeight;
+
+        var r = winHeight / winWidth;
+        if (r <= 0.5625 && r > 0.46) {
+            var scaleMode = "fixedWidth";
+        } else {
+            var scaleMode = "showAll";
+        }
+        var egretdiv = document.getElementsByClassName("egret-player")[0];
+        egretdiv.setAttribute("data-scale-mode", scaleMode);
+    }
+</script>
+
+<body>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="landscape" data-scale-mode="showAll" data-frame-rate="30" data-content-width="1280"
+data-content-height="720" data-show-paint-rect="true" data-multi-fingered="2" data-show-fps="true" data-show-log="false"
+data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.2">
+</div>
+<div id='backDiv' class="backDiv"></div>
+<div id="server" class="server server_webkit">
+    <!-- 公告 弹出窗 -->
+    <div id="gg" class="gg_none">
+        <span class="pop_title">公  告</span>
+        <span class="pop_bottom"></span>
+        <div class="pop_close" id="ggtopclose"></div>
+        <div class="ggclose" id="ggclose"></div>
+        <div class="ggcontent" id="ggcontent">公告<br/>
+        </div>
+    </div>
+
+
+    <!-- 进入游戏 面板 -->
+    <div id="choose" class="choose choose_webkit">
+        <div id="ggbut" class="ggbut">
+            <div id="ggbtn" class="ggbtn" style="display:block;"></div>
+    </div>
+    <div class="now">
+        <div contenteditable="true" class="newname"></div>
+        <div class="servername"></div>
+    </div>
+    <div class="goplay"></div>
+</div>
+<!--<div>
+            适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。
+        </div>-->
+
+<!-- 区服选择 弹出窗 -->
+<div id="slist" class="slist_none">
+    <span class="pop_title">选择区服</span>
+    <span class="pop_bottom"></span>
+    <div class="pop_close" id="sclosetitle"></div>
+    <div class="ggclose" id="sclose"></div>
+    <!-- <div class="ggcontent" id="slistcontent"> -->
+    <div class="between-out">
+        <div class="between"></div>
+    </div>
+    <img class="pop_line" src='loginres/SBm_SX.png' />
+</div>
+
+<div id="loading" class="loading_none">
+    <div id="loading1" class="loading1 loadpro_webkit">
+        <div id="pro_line1" class="pro_line1">
+            <img id="star1" class="star" src="loginres/loadinglight.png">
+        </div>
+        <div id="proalert1" class="protext">加载中</div>
+    </div>
+    <div id="loading2" class="loading2 loadpro_webkit">
+        <div id="pro_line2" class="pro_line1">
+            <img id="star2" class="star" src="loginres/loadinglight.png">
+        </div>
+        <div id="proalert2" class="protext">加载中</div>
+    </div>
+</div>
+</div>
+<div id='fcmtext' class="fcmtext">
+    <div>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</div>
+    <div>适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</div>
+</div>
+<div id="popbg" class="pop_bg" style="display:none;"></div>
+</body>
+
+<script>
+    changeMode();
+    var isTest = false;
+    var DEBUGM = true;
+    var loginArg = null;
+
+    function loadScriptRes(url, callback, model, total) {
+        console.log(url);
+        var isFullUrl = url.indexOf("http://") >= 0 || url.indexOf("https://") >= 0;
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.onload = function () {
+            callback && callback();
+        }
+        script.onerror = function () {
+            script.parentNode.removeChild(script);
+            callback && callback();
+        }
+        script.src = isFullUrl ? url : getUrl(url, 0);
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+
+    function getUrl(url, cdnIndex) {
+        return url;
+    }
+
+    function initPbSDK() {
+        if (DEBUGM) {
+            loginArg = {};
+            loginArg.binVersion = "";
+            loginArg.account = "";
+            loginArg.openGM = true;
+            loginArg.res = 1;
+        } else {
+            //初始化
+            whalePbSDK.init(function (status) {
+                if (status) {
+                    console.log("sdk初始化成功");
+                    func_userdata();
+                } else {
+                    console.log("sdk初始化失败");
+                    func_userdata();
+                }
+            });
+        }
+    }
+
+    //获取用户信息
+    function func_userdata() {
+        loginArg = whalePbSDK.getuser();
+        // loginArg.binVersion = "V22";
+        loginArg.cdn = "http://cdnali.xmxy.jingyuyouxi.net/";
+        loginArg.zipcdn = "http://cdnali.xmxy.jingyuyouxi.net/";
+        loginArg.serverHttpUrl = "http://houtai2.xmxy.jingyuyouxi.net:7001";
+    }
+
+    window.onload = function () {
+        // preLoading();
+        initPbSDK();
+    }
+    $.getScript("loginjs/login.js");
+</script>
+<!--<script src="loginjs/login.js"></script>-->
+
+</html>

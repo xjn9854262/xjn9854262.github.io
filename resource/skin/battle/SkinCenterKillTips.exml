@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkinCenterKillTips" width="250" height="100" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="battle_tips_json.img_bg_tips" scale9Grid="104,11,10,10" left="0" right="0" top="0" bottom="0" alpha="0.8"/>
+	<e:Image source="head_json.tb_tx_daqiao" width="65" height="65" verticalCenter="0" left="15"/>
+	<e:Image source="head_json.tb_tx_diaochan" width="65" height="65" right="15" verticalCenter="0"/>
+	<e:Image source="battle_tips_json.tb_tx_k_01" width="65" height="65" verticalCenter="0" left="15"/>
+	<e:Image width="65" height="65" verticalCenter="0" right="15" source="battle_tips_json.tb_tx_k_00"/>
+	<e:Image source="battle_tips_json.img_text_kill" verticalCenter="0" horizontalCenter="0"/>
+</e:Skin>

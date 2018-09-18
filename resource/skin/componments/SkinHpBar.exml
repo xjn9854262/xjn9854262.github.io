@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkinHpBar" xmlns:e="http://ns.egret.com/eui">
+    <e:Image id="imgBgBar" width="200" height="15" source="battle_tips_json.img_bg_hp_bar" scale9Grid="81,5,1,1"/>
+    <e:Image id="imgCountBar" source="battle_tips_json.img_hp_bar_g" scale9Grid="81,5,1,1" height="15" y="0" width="196" x="2"/>
+</e:Skin>

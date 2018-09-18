@@ -1,0 +1,228 @@
+{
+	"groups": [
+		{
+			"keys": "selected_png,border_png,header_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,scene_right_home_png,scene_left_home_png,guanyu_png,tb_gb_png,tb_ms_png,tb_qb_png,tb_qqb_png,tb_tsc_png,back_11_png,stage_map_guild_frame_png,tb_tx_gaoshun_png,common_common_battle_wjskl_04_png",
+			"name": "preload"
+		},
+		{
+			"keys": "config_json",
+			"name": "gamecfg"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/CheckBox/checkbox_select_disabled.png",
+			"type": "image",
+			"name": "checkbox_select_disabled_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_down.png",
+			"type": "image",
+			"name": "checkbox_select_down_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_up.png",
+			"type": "image",
+			"name": "checkbox_select_up_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_unselect.png",
+			"type": "image",
+			"name": "checkbox_unselect_png"
+		},
+		{
+			"url": "assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected_png"
+		},
+		{
+			"url": "assets/Panel/border.png",
+			"type": "image",
+			"name": "border_png"
+		},
+		{
+			"url": "assets/Panel/header.png",
+			"type": "image",
+			"name": "header_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_disabled.png",
+			"type": "image",
+			"name": "radiobutton_select_disabled_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_down.png",
+			"type": "image",
+			"name": "radiobutton_select_down_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_up.png",
+			"type": "image",
+			"name": "radiobutton_select_up_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_unselect.png",
+			"type": "image",
+			"name": "radiobutton_unselect_png"
+		},
+		{
+			"url": "assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "assets/Slider/thumb.png",
+			"type": "image",
+			"name": "thumb_png"
+		},
+		{
+			"url": "assets/Slider/track.png",
+			"type": "image",
+			"name": "track_png"
+		},
+		{
+			"url": "assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/handle.png",
+			"type": "image",
+			"name": "handle_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/off.png",
+			"type": "image",
+			"name": "off_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/on.png",
+			"type": "image",
+			"name": "on_png"
+		},
+		{
+			"url": "assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down_png"
+		},
+		{
+			"url": "assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up_png"
+		},
+		{
+			"url": "assets/ProgressBar/thumb_pb.png",
+			"type": "image",
+			"name": "thumb_pb_png"
+		},
+		{
+			"url": "assets/ProgressBar/track_pb.png",
+			"type": "image",
+			"name": "track_pb_png"
+		},
+		{
+			"url": "assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon_png"
+		},
+		{
+			"url": "ui/main/building.json",
+			"type": "sheet",
+			"name": "building_json",
+			"subkeys": "gn_yd_02,jinkuang,tongkuang,zhc_bingying,zhc_celuefu,zhc_dating,zhc_jiaochang,zhc_jiuguan,zhc_jumin,zhc_name_bingying,zhc_name_celuefu,zhc_name_dating,zhc_name_jiaochang,zhc_name_jiuguan,zhc_name_jumin,zhc_name_kuangchang,zhc_name_nongtian,zhc_name_shangpu,zhc_name_tiejiangpu,zhc_name_youxiang,zhc_nongtian,zhc_shangdian,zhc_tiejiang,zhc_youxiang"
+		},
+		{
+			"url": "assets/scene_right_home.png",
+			"type": "image",
+			"name": "scene_right_home_png"
+		},
+		{
+			"url": "assets/scene_left_home.png",
+			"type": "image",
+			"name": "scene_left_home_png"
+		},
+		{
+			"url": "ui/common/head.json",
+			"type": "sheet",
+			"name": "head_json",
+			"subkeys": "tb_tx_caocao,tb_tx_caocao_god,tb_tx_caoren,tb_tx_chengong,tb_tx_chengpu,tb_tx_daqiao,tb_tx_dianwei,tb_tx_diaochan,tb_tx_dongzhuo,tb_tx_ganning,tb_tx_gaoshun,tb_tx_guanyu,tb_tx_guanyu_god,tb_tx_guojia,tb_tx_handang,tb_tx_huanggai,tb_tx_huangyueying,tb_tx_huangzhong,tb_tx_huatuo,tb_tx_huaxiong,tb_tx_jiaxu,tb_tx_liubei,tb_tx_luxun,tb_tx_lvbu,tb_tx_lvbu_god,tb_tx_lvmeng,tb_tx_machao,tb_tx_pangtong,tb_tx_simayi,tb_tx_sunce,tb_tx_sunquan,tb_tx_sunshangxiang,tb_tx_tygongjiang,tb_tx_tymoushi,tb_tx_tywujiang,tb_tx_weiyan,tb_tx_wenchou,tb_tx_xiahoudun,tb_tx_xiahouyuan,tb_tx_xiaoqiao,tb_tx_xuchu,tb_tx_xuhuang,tb_tx_xunyu,tb_tx_yanliang,tb_tx_yuanshao,tb_tx_zhangbao,tb_tx_zhangfei,tb_tx_zhanghe,tb_tx_zhangjiao,tb_tx_zhangliang,tb_tx_zhangliao,tb_tx_zhaoyun,tb_tx_zhaoyun_god,tb_tx_zhenji,tb_tx_zhoutai,tb_tx_zhouyu,tb_tx_zhugeliang"
+		},
+		{
+			"url": "ui/battle/battle_tips.json",
+			"type": "sheet",
+			"name": "battle_tips_json",
+			"subkeys": "img_bg_green,img_bg_hp_bar,img_bg_left,img_bg_red,img_bg_tips,img_hp_bar_g,img_hp_bar_r,img_kill_icon,img_text_kill,tb_tx_k_00,tb_tx_k_01"
+		},
+		{
+			"url": "assets/guanyu.png",
+			"type": "image",
+			"name": "guanyu_png"
+		},
+		{
+			"url": "ui/battle/skill_name.json",
+			"type": "sheet",
+			"name": "skill_name_json",
+			"subkeys": "skillname_1,skillname_10,skillname_11,skillname_12,skillname_13,skillname_14,skillname_15,skillname_16,skillname_17,skillname_18,skillname_19,skillname_2,skillname_20,skillname_21,skillname_22,skillname_23,skillname_24,skillname_25,skillname_26,skillname_27,skillname_28,skillname_29,skillname_3,skillname_30,skillname_31,skillname_32,skillname_33,skillname_34,skillname_35,skillname_36,skillname_37,skillname_4,skillname_5,skillname_6,skillname_7,skillname_8,skillname_9"
+		},
+		{
+			"url": "assets/gouyu.png",
+			"type": "image",
+			"name": "gouyu_png"
+		},
+		{
+			"url": "assets/tb_gb.png",
+			"type": "image",
+			"name": "tb_gb_png"
+		},
+		{
+			"url": "assets/tb_ms.png",
+			"type": "image",
+			"name": "tb_ms_png"
+		},
+		{
+			"url": "assets/tb_qb.png",
+			"type": "image",
+			"name": "tb_qb_png"
+		},
+		{
+			"url": "assets/tb_qqb.png",
+			"type": "image",
+			"name": "tb_qqb_png"
+		},
+		{
+			"url": "assets/tb_tsc.png",
+			"type": "image",
+			"name": "tb_tsc_png"
+		},
+		{
+			"url": "assets/back_11.png",
+			"type": "image",
+			"name": "back_11_png"
+		},
+		{
+			"url": "assets/stage_map_guild_frame.png",
+			"type": "image",
+			"name": "stage_map_guild_frame_png"
+		},
+		{
+			"url": "assets/tb_tx_gaoshun.png",
+			"type": "image",
+			"name": "tb_tx_gaoshun_png"
+		},
+		{
+			"url": "assets/common_common_battle_wjskl_04.png",
+			"type": "image",
+			"name": "common_common_battle_wjskl_04_png"
+		},
+		{
+			"url": "config/config.json",
+			"type": "json",
+			"name": "config_json"
+		}
+	]
+}

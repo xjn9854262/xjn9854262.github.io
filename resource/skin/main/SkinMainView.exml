@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkinMainView" height="720" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*">
+    <e:Image id="bg"/>
+	<ns1:MainBuildingButton id="build_dating" width="250" height="199" x="380" y="150" icon="building_json.zhc_dating"  title="building_json.zhc_name_dating"  skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_celuefu" width="208" height="153" x="840" y="210" icon="building_json.zhc_celuefu" title="building_json.zhc_name_celuefu" skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_jiaochang" width="171" height="166" x="630" y="120" icon="building_json.zhc_jiaochang" title="building_json.zhc_name_jiaochang"  skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_jiuguan" width="166" height="154" x="640" y="355" icon="building_json.zhc_jiuguan" title="building_json.zhc_name_jiuguan" skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_jumin" width="166" height="154" x="785" y="490" icon="building_json.zhc_jumin" title="building_json.zhc_name_jumin" skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_nongtian" width="199" height="127" x="840" y="585" icon="building_json.zhc_nongtian"  title="building_json.zhc_name_nongtian" skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_shangdian" width="131" height="106" x="570" y="570" icon="building_json.zhc_shangdian" title="building_json.zhc_name_shangpu" skinName="SkinMainBuildingButton" offLeft="-25" offTop="-25"/>
+    <ns1:MainBuildingButton id="build_tiejiang" width="193" height="148" x="400" y="453" icon="building_json.zhc_tiejiang" title="building_json.zhc_name_tiejiangpu" skinName="SkinMainBuildingButton"/>
+    <ns1:MainBuildingButton id="build_youxiang" width="116" height="126" x="1030" y="120" icon="building_json.zhc_youxiang" title="building_json.zhc_name_youxiang" skinName="SkinMainBuildingButton" offLeft="-25" offTop="-25"/>
+    <ns1:MainBuildingButton id="build_tongkuang" width="226" height="190" x="160" y="260" icon="building_json.tongkuang" title="building_json.zhc_name_kuangchang" skinName="SkinMainBuildingButton"/>
+	<ns1:MainBuildingButton id="build_bingying" width="216" height="158" x="1000" y="300" icon="building_json.zhc_bingying" title="building_json.zhc_name_bingying" skinName="SkinMainBuildingButton"/>
+</e:Skin>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkinMainBuildingButton" xmlns:e="http://ns.egret.com/eui">
+    <e:Image id="bg" left="0" right="0" top="0" bottom="0" source="{icon}" />
+    <e:Image id="titleicon" left="{offLeft}" top="{offTop}"  source="{title}" />
+    <e:Label id="lb" horizontalCenter="0" verticalCenter="0" size="{textSize}" textColor="{color}" text="{text}" />
+</e:Skin>

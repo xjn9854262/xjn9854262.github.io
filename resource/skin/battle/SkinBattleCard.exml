@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkinBattleCard" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="back_11_png" width="80" height="80" verticalCenter="0" horizontalCenter="0" alpha="0.8" touchEnabled="false"/>
+	<e:Image id="head" verticalCenter="0" horizontalCenter="0" source="head_json.tb_tx_caocao" touchEnabled="false"/>
+    <e:Image id="bg" width="90" height="90" source="stage_map_guild_frame_png" touchEnabled="false"/>
+    <e:Image id="type" width="25" height="25" right="7" top="8" source="tb_gb_png" touchEnabled="false"/>
+    <e:Image id="costType" bottom="5" left="8" source="gouyu_png" scaleX="0.5" scaleY="0.5" touchEnabled="false"/>
+    <e:Label id="cost" text="200" size="14" horizontalCenter="-5" bottom="7" touchEnabled="false" textColor="0xea2cd3"/>
+</e:Skin>
